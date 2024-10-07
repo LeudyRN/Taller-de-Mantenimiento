@@ -1,0 +1,29 @@
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\Taller de Mantenimiento.exe.config
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\Taller de Mantenimiento.exe
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\Taller de Mantenimiento.pdb
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\MaterialSkin.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller de Mantenimiento.csproj.AssemblyReference.cache
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller_de_Mantenimiento.Form1.resources
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller_de_Mantenimiento.Properties.Resources.resources
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller de Mantenimiento.csproj.GenerateResource.cache
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller de Mantenimiento.csproj.CoreCompileInputs.cache
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller d.606DFA9A.Up2Date
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller de Mantenimiento.exe
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller de Mantenimiento.pdb
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\MySqlConnector.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Buffers.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Memory.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Numerics.Vectors.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\MySqlConnector.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Buffers.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Memory.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Numerics.Vectors.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller_de_Mantenimiento.Form2.resources
