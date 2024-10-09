@@ -24,5 +24,15 @@ namespace Taller_de_Mantenimiento
             InitializeComponent();
 
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FiltroConsulta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

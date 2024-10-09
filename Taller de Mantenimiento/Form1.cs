@@ -29,6 +29,7 @@ namespace Taller_de_Mantenimiento
         {
             InitializeComponent();
 
+
             materialTextBox22.PasswordChar = '*';
 
 
@@ -51,9 +52,6 @@ namespace Taller_de_Mantenimiento
                 isMouseOver[pictureBox] = false;
             }
         }
-
-        SqlConnection connection = new SqlConnection("server=");
-
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -86,6 +84,8 @@ namespace Taller_de_Mantenimiento
                 form2.Show();
                 this.Hide();
                 
+
+
 
             }
             else

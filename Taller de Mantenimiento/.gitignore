@@ -1,0 +1,10 @@
+# Archivos y carpetas generadas por Visual Studio que no son necesarias en Git
+*.vs/
+*.user
+*.suo
+*.cache
+*.log
+*.dbmdl
+*.pidb
+bin/
+obj/
