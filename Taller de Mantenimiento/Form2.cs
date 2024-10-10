@@ -13,6 +13,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using MySqlConnector;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace Taller_de_Mantenimiento
@@ -112,14 +113,14 @@ namespace Taller_de_Mantenimiento
 
         }
 
-        private void cargarClientes()
-        {
-            mcarga.nombre = textBox3.Text.Trim();
-            mcarga.apellido = textBox2.Text.Trim();
-            mcarga.cedula =  textBox4.Text.Trim();
-            mcarga.numero_tel = textBox5.Text.Trim();
-            mcarga.direccion = textBox6.Text.Trim();
-        }
+        /*  private void cargarClientes()
+          {
+              mcarga.nombre = textBox3.Text.Trim();
+              mcarga.apellido = textBox2.Text.Trim();
+              mcarga.cedula =  textBox4.Text.Trim();
+              mcarga.numero_tel = textBox5.Text.Trim();
+              mcarga.direccion = textBox6.Text.Trim();
+          }*/
 
         private bool datosCorrectos()
         {
@@ -155,6 +156,11 @@ namespace Taller_de_Mantenimiento
 
 
             return true;
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
