@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clientes.cs" />
+    <Compile Include="Conexion.cs" />
+    <Compile Include="ConexionMysql.cs" />
     <Compile Include="ConsultaCliente.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

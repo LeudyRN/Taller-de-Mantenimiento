@@ -85,8 +85,6 @@ namespace Taller_de_Mantenimiento
                 this.Hide();
                 
 
-
-
             }
             else
             {
@@ -98,42 +96,55 @@ namespace Taller_de_Mantenimiento
 
         private bool IniciarSesion(string correo, string contraseña)
         {
-          
-            string connectionString = "server=localhost;database=nueva;uid=root;pwd=RLN12345e";
-            bool inicioExitoso = true;
+            bool inicioExitoso = false;
 
-          
-            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            // Crea una instancia de ConexionMysql
+            ConexionMysql conexionDb = new ConexionMysql();
+
+            using (MySqlConnection conexion = conexionDb.GetConnection())
             {
                 try
                 {
-                    conexion.Open();
+                    // Asegúrate de que la conexión está abierta
+                    if (conexion.State == System.Data.ConnectionState.Closed)
+                    {
+                        conexion.Open();
+                    }
 
-
-                    string query = "SELECT * FROM new_table WHERE correo or username = @correo AND contra = @contraseña";
-
-
+                    // Consulta para contar los usuarios que coinciden con las credenciales
+                    string query = "SELECT * FROM usuarios WHERE correo OR nombre_usuario = @correo AND contrasena = @contraseña";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@correo", correo);
-                        cmd.Parameters.AddWithValue("@contraseña", contraseña); 
+                        cmd.Parameters.AddWithValue("@contraseña", contraseña);
 
-                
+                        // Ejecuta la consulta y convierte el resultado a un entero
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                   
+                        // Establece inicioExitoso a true si hay 1 coincidencia
                         inicioExitoso = count == 1;
                     }
                 }
-                catch (Exception ex)
+                catch (MySqlException ex) // Manejo específico de errores de MySQL
+                {
+                    MessageBox.Show("Error de conexión: " + ex.Message);
+                }
+                catch (InvalidOperationException ex) // Captura errores de estado de conexión
                 {
                     MessageBox.Show("Error: " + ex.Message);
+                }
+                catch (Exception ex) // Captura cualquier otro tipo de error
+                {
+                    MessageBox.Show("Error inesperado: " + ex.Message);
                 }
             }
 
             return inicioExitoso;
         }
+
+
+
         private void PictureBox_MouseEnter(object sender, EventArgs e)
         {
             PictureBox pictureBox = sender as PictureBox;
@@ -156,7 +167,7 @@ namespace Taller_de_Mantenimiento
 
             if (isMouseOver[pictureBox])
             {
-                // Aumentar el tamaño y ajustar la posición para centrar el PictureBox
+               
                 if (pictureBox.Width < originalSize.originalWidth + maxZoomSize)
                 {
                     pictureBox.Size = new Size(pictureBox.Width + zoomFactor, pictureBox.Height + zoomFactor);
@@ -171,7 +182,7 @@ namespace Taller_de_Mantenimiento
             }
             else
             {
-                // Reducir el tamaño y restaurar la posición original
+                
                 if (pictureBox.Width > originalSize.originalWidth)
                 {
                     pictureBox.Size = new Size(pictureBox.Width - zoomFactor, pictureBox.Height - zoomFactor);
