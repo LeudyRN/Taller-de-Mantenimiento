@@ -75,7 +75,7 @@ namespace Taller_de_Mantenimiento
 
         private void capturarDatosDelFormulario()
         {
-            mcarga.id_cliente = Convert.ToInt32(textBox7.Text.Trim());
+      
             mcarga.nombre = textBox3.Text.Trim();
             mcarga.apellido = textBox2.Text.Trim();
             mcarga.cedula = textBox4.Text.Trim();
@@ -83,6 +83,15 @@ namespace Taller_de_Mantenimiento
             mcarga.direccion = textBox6.Text.Trim();
         }
 
+        private void capturarDatosDelFormularioParaEliminar()
+        {
+            mcarga.id_cliente = Convert.ToInt32(textBox7.Text.Trim());
+            mcarga.nombre = textBox3.Text.Trim();
+            mcarga.apellido = textBox2.Text.Trim();
+            mcarga.cedula = textBox4.Text.Trim();
+            mcarga.numero_tel = textBox5.Text.Trim();
+            mcarga.direccion = textBox6.Text.Trim();
+        }
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -219,7 +228,7 @@ namespace Taller_de_Mantenimiento
 
             if (MessageBox.Show("¿Desea eliminar el cliente?", "Eliminar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                capturarDatosDelFormulario();          
+                capturarDatosDelFormularioParaEliminar();
 
                 if (mConsultaCliente.eliminarClientes(mcarga))
                 {
