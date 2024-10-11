@@ -41,6 +41,8 @@ namespace Taller_de_Mantenimiento
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -58,6 +60,7 @@ namespace Taller_de_Mantenimiento
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.grid = new MaterialSkin.Controls.MaterialListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Cedula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -86,6 +89,8 @@ namespace Taller_de_Mantenimiento
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
+            this.tabPage1.Controls.Add(this.materialLabel7);
+            this.tabPage1.Controls.Add(this.textBox7);
             this.tabPage1.Controls.Add(this.textBox6);
             this.tabPage1.Controls.Add(this.materialLabel6);
             this.tabPage1.Controls.Add(this.materialLabel5);
@@ -110,6 +115,28 @@ namespace Taller_de_Mantenimiento
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Clientes";
             // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.ForeColor = System.Drawing.Color.Black;
+            this.materialLabel7.Location = new System.Drawing.Point(253, 98);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(20, 19);
+            this.materialLabel7.TabIndex = 19;
+            this.materialLabel7.Text = "ID:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(330, 97);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 18;
+            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(330, 429);
@@ -124,7 +151,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel6.Depth = 0;
             this.materialLabel6.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(717, 88);
+            this.materialLabel6.Location = new System.Drawing.Point(726, 76);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(76, 19);
@@ -230,16 +257,16 @@ namespace Taller_de_Mantenimiento
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1047, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(665, 69);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 31);
+            this.pictureBox1.Size = new System.Drawing.Size(55, 38);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(821, 87);
+            this.textBox1.Location = new System.Drawing.Point(821, 77);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(220, 20);
             this.textBox1.TabIndex = 4;
@@ -263,6 +290,7 @@ namespace Taller_de_Mantenimiento
             this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton3.UseAccentColor = false;
             this.materialButton3.UseVisualStyleBackColor = true;
+            this.materialButton3.Click += new System.EventHandler(this.materialButton3_Click);
             // 
             // materialButton2
             // 
@@ -310,6 +338,7 @@ namespace Taller_de_Mantenimiento
             this.grid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
             this.Nombre,
             this.Apellido,
             this.Cedula,
@@ -318,7 +347,7 @@ namespace Taller_de_Mantenimiento
             this.grid.Depth = 0;
             this.grid.FullRowSelect = true;
             this.grid.HideSelection = false;
-            this.grid.Location = new System.Drawing.Point(588, 134);
+            this.grid.Location = new System.Drawing.Point(619, 132);
             this.grid.MinimumSize = new System.Drawing.Size(200, 100);
             this.grid.MouseLocation = new System.Drawing.Point(-1, -1);
             this.grid.MouseState = MaterialSkin.MouseState.OUT;
@@ -328,11 +357,17 @@ namespace Taller_de_Mantenimiento
             this.grid.TabIndex = 0;
             this.grid.UseCompatibleStateImageBehavior = false;
             this.grid.View = System.Windows.Forms.View.Details;
+            this.grid.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.grid_ItemSelectionChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 54;
             // 
             // Nombre
             // 
             this.Nombre.Text = "Nombre";
-            this.Nombre.Width = 132;
+            this.Nombre.Width = 139;
             // 
             // Apellido
             // 
@@ -352,7 +387,7 @@ namespace Taller_de_Mantenimiento
             // Direccion
             // 
             this.Direccion.Text = "Direccion";
-            this.Direccion.Width = 166;
+            this.Direccion.Width = 102;
             // 
             // tabPage2
             // 
@@ -410,5 +445,8 @@ namespace Taller_de_Mantenimiento
         private MaterialLabel materialLabel4;
         private MaterialLabel materialLabel6;
         private TextBox textBox6;
+        private MaterialLabel materialLabel7;
+        private TextBox textBox7;
+        private ColumnHeader ID;
     }
 }

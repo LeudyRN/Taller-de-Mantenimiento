@@ -98,20 +98,20 @@ namespace Taller_de_Mantenimiento
         {
             bool inicioExitoso = false;
 
-            // Crea una instancia de ConexionMysql
+         
             ConexionMysql conexionDb = new ConexionMysql();
 
             using (MySqlConnection conexion = conexionDb.GetConnection())
             {
                 try
                 {
-                    // Asegúrate de que la conexión está abierta
+              
                     if (conexion.State == System.Data.ConnectionState.Closed)
                     {
                         conexion.Open();
                     }
 
-                    // Consulta para contar los usuarios que coinciden con las credenciales
+                 
                     string query = "SELECT * FROM usuarios WHERE correo OR nombre_usuario = @correo AND contrasena = @contraseña";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conexion))
@@ -119,22 +119,22 @@ namespace Taller_de_Mantenimiento
                         cmd.Parameters.AddWithValue("@correo", correo);
                         cmd.Parameters.AddWithValue("@contraseña", contraseña);
 
-                        // Ejecuta la consulta y convierte el resultado a un entero
+                     
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                        // Establece inicioExitoso a true si hay 1 coincidencia
+                     
                         inicioExitoso = count == 1;
                     }
                 }
-                catch (MySqlException ex) // Manejo específico de errores de MySQL
+                catch (MySqlException ex) 
                 {
                     MessageBox.Show("Error de conexión: " + ex.Message);
                 }
-                catch (InvalidOperationException ex) // Captura errores de estado de conexión
+                catch (InvalidOperationException ex) 
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-                catch (Exception ex) // Captura cualquier otro tipo de error
+                catch (Exception ex) 
                 {
                     MessageBox.Show("Error inesperado: " + ex.Message);
                 }
