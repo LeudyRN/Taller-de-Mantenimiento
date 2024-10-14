@@ -30,6 +30,10 @@ namespace Taller_de_Mantenimiento
         private Clientes mcarga;
         private ConsultaCliente mConsultaCliente;
 
+        private List<Vehiculo> mVehiculo;
+        private Vehiculo mcarga1;
+        private ConsultaVehiculo mConsultaVehiculo;
+
         public Form2()
         {
 
@@ -43,7 +47,11 @@ namespace Taller_de_Mantenimiento
             cargarClientes();
             textBox7.ReadOnly = true;
 
-
+            mVehiculo = new List<Vehiculo>();
+            mConsultaVehiculo = new ConsultaVehiculo();
+            mcarga1 = new Vehiculo();
+            cargarVehiculo();
+            textBox9.ReadOnly = true;
         }
 
         private void cargarClientes(string filtro = "")
@@ -73,6 +81,32 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void cargarVehiculo(string filtro = "")
+        {
+            grid1.Items.Clear();
+            grid1.Refresh();
+            mVehiculo.Clear();
+
+
+            mVehiculo= mConsultaVehiculo.getVehiculo(filtro);
+
+
+            for (int i = 0; i < mVehiculo.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mVehiculo[i].id_vehiculo.ToString());
+
+                item.SubItems.Add(mVehiculo[i].id_cliente.ToString());
+                item.SubItems.Add(mVehiculo[i].marca);
+                item.SubItems.Add(mVehiculo[i].modelo);
+                item.SubItems.Add(mVehiculo[i].ano.ToString());
+                item.SubItems.Add(mVehiculo[i].placa);
+
+                grid1.Items.Add(item);
+            }
+
+        }
+
         private void capturarDatosDelFormulario()
         {
       
@@ -83,6 +117,16 @@ namespace Taller_de_Mantenimiento
             mcarga.direccion = textBox6.Text.Trim();
         }
 
+        private void capturarDatosDelFormularioVehiculo()
+        {
+
+            mcarga1.id_cliente = int.Parse(textBox10.Text.Trim());
+            mcarga1.marca = textBox11.Text.Trim();
+            mcarga1.modelo = textBox12.Text.Trim();
+            mcarga1.ano = int.Parse(textBox13.Text.Trim());
+            mcarga1.placa = textBox14.Text.Trim();
+        }
+        //------------------------------------
         private void capturarDatosDelFormularioParaEliminar()
         {
             mcarga.id_cliente = Convert.ToInt32(textBox7.Text.Trim());
@@ -93,10 +137,22 @@ namespace Taller_de_Mantenimiento
             mcarga.direccion = textBox6.Text.Trim();
         }
 
+        private void capturarDatosDelFormularioParaEliminarVehiculo()
+        {
+            mcarga1.id_vehiculo = Convert.ToInt32(textBox9.Text.Trim());
+            mcarga1.id_cliente = Convert.ToInt32(textBox10.Text.Trim());
+            mcarga1.marca = textBox11.Text.Trim();
+            mcarga1.modelo = textBox12.Text.Trim();
+            mcarga1.ano = Convert.ToInt32(textBox13.Text.Trim());
+            mcarga1.placa = textBox14.Text.Trim();
+          
+        }
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
             cargarClientes();
+            cargarVehiculo();
            // tabPage1.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
@@ -131,6 +187,17 @@ namespace Taller_de_Mantenimiento
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
+
+        }
+
+        private void LimpiarCampos1()
+        {
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox13.Text = "";
+            textBox14.Text = "";
 
         }
 
@@ -171,6 +238,48 @@ namespace Taller_de_Mantenimiento
             return true;
         }
 
+        private bool datosCorrectosVehiculo()
+        {
+            if (string.IsNullOrWhiteSpace(textBox10.Text)) 
+            {
+                MessageBox.Show("Ingrese el ID del cliente");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox11.Text)) 
+            {
+                MessageBox.Show("Ingrese la marca del vehículo");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox12.Text)) 
+            {
+                MessageBox.Show("Ingrese el modelo del vehículo");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox13.Text)) 
+            {
+                MessageBox.Show("Ingrese el año del vehículo");
+                return false;
+            }
+
+            if (!int.TryParse(textBox13.Text, out _)) 
+            {
+                MessageBox.Show("El año debe ser un número válido");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox14.Text)) 
+            {
+                MessageBox.Show("Ingrese la placa del vehículo");
+                return false;
+            }
+
+            return true;
+        }
+
+
         private void materialButton2_Click(object sender, EventArgs e)
         {
             if (!datosCorrectos())
@@ -178,7 +287,7 @@ namespace Taller_de_Mantenimiento
                 return;
             }
 
-            mcarga.id_cliente = Convert.ToInt32(textBox7.Text.Trim()); 
+            mcarga.id_cliente = Convert.ToInt32(textBox7.Text.Trim());
             mcarga.nombre = textBox3.Text.Trim();
             mcarga.apellido = textBox2.Text.Trim();
             mcarga.cedula = textBox4.Text.Trim();
@@ -198,9 +307,7 @@ namespace Taller_de_Mantenimiento
             }
         }
 
-
-
-        private void grid_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+            private void grid_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (grid.SelectedItems.Count > 0)
             {
@@ -243,6 +350,96 @@ namespace Taller_de_Mantenimiento
             }
         }
 
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            cargarVehiculo(textBox8.Text.Trim());
+        }
+
+        private void materialButton4_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosVehiculo())
+            {
+                return;
+            }
+
+            cargarVehiculo();
+            capturarDatosDelFormularioVehiculo();
+
+            if (mConsultaVehiculo.agregarVehiculo(mcarga1))
+            {
+
+                MessageBox.Show("Vehiculo agregado");
+                cargarVehiculo();
+                LimpiarCampos1();
+            }
+        }
+
+        private void materialButton5_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosVehiculo())
+            {
+                return;
+            }
+
+            mcarga1.id_vehiculo = Convert.ToInt32(textBox9.Text.Trim());
+            mcarga1.id_cliente = Convert.ToInt32(textBox10.Text.Trim());
+            mcarga1.marca = textBox11.Text.Trim();
+            mcarga1.modelo = textBox12.Text.Trim();
+            mcarga1.ano = Convert.ToInt32(textBox13.Text.Trim());
+            mcarga1.placa = textBox14.Text.Trim();
+
+
+            if (mConsultaVehiculo.modificarVehiculo(mcarga1))
+            {
+                MessageBox.Show("Vehículo modificado");
+                cargarVehiculo();
+                capturarDatosDelFormularioVehiculo();
+                LimpiarCampos1();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el vehículo.");
+            }
+        }
+    
+
+        private void grid1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (grid1.SelectedItems.Count > 0) 
+            {
+                ListViewItem selectedItem = grid1.SelectedItems[0];
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int idVehiculo)) 
+                {
+                    textBox9.Text = idVehiculo.ToString();
+                    textBox10.Text = selectedItem.SubItems[1].Text; 
+                    textBox11.Text = selectedItem.SubItems[2].Text; 
+                    textBox12.Text = selectedItem.SubItems[3].Text; 
+                    textBox13.Text = selectedItem.SubItems[4].Text; 
+                    textBox14.Text = selectedItem.SubItems[5].Text; 
+                }
+            }
+
+        }
+
+        private void materialButton6_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea eliminar este vehiculo?", "Eliminar Vehiculo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                capturarDatosDelFormularioParaEliminarVehiculo();
+
+                if (mConsultaVehiculo.eliminarVehiculo(mcarga1))
+                {
+                    MessageBox.Show("Vehiculo eliminado");
+                    cargarVehiculo();
+                    LimpiarCampos1();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el Vehiculo");
+                }
+            }
+        }
     }
 }
 
