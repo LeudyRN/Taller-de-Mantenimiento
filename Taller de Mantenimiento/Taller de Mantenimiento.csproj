@@ -80,6 +80,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="ConexionMysql.cs" />
     <Compile Include="ConsultaCliente.cs" />
+    <Compile Include="ConsultaPiezas.cs" />
     <Compile Include="ConsultaVehiculo.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -93,6 +94,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Piezas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vehiculo.cs" />

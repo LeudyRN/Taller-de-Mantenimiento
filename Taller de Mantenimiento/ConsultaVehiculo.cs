@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace Taller_de_Mantenimiento
         {
             string query = "SELECT * FROM vehiculos";
             MySqlDataReader mReader = null;
-            List<Vehiculo> mclientes = new List<Vehiculo>();
+            List<Vehiculo> mvehiculos = new List<Vehiculo>();
 
             try
             {
@@ -69,6 +70,8 @@ namespace Taller_de_Mantenimiento
 
         internal bool agregarVehiculo(Vehiculo mVehiculo)
         {
+
+            
             string insert = "INSERT INTO vehiculos (id_cliente, marca, modelo, ano, placa) " +
                             "VALUES (@id_cliente, @marca, @modelo, @ano, @placa)";
 

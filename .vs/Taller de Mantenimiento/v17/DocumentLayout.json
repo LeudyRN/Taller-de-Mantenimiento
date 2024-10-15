@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\Taller 2.0\\Taller de Mantenimiento\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\consultavehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\consultavehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|d:\\taller 2.0\\taller de mantenimiento\\taller de mantenimiento\\consultavehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\consultavehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|d:\\taller 2.0\\taller de mantenimiento\\taller de mantenimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|d:\\taller 2.0\\taller de mantenimiento\\taller de mantenimiento\\consultapiezas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\consultapiezas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|d:\\taller 2.0\\taller de mantenimiento\\taller de mantenimiento\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\consultacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,12 +31,20 @@
       "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\vehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|d:\\taller 2.0\\taller de mantenimiento\\taller de mantenimiento\\piezas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\piezas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|D:\\Taller 2.0\\Taller de Mantenimiento\\taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08014984-1E69-4CA2-B621-71F1F77C0B69}|Taller de Mantenimiento\\Taller de Mantenimiento.csproj|solutionrelative:taller de mantenimiento\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,52 +62,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "Form2.Designer.cs",
+              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form2.Designer.cs",
+              "RelativeDocumentMoniker": "Taller de Mantenimiento\\Form2.Designer.cs",
+              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form2.Designer.cs",
+              "RelativeToolTip": "Taller de Mantenimiento\\Form2.Designer.cs",
+              "ViewState": "AgIAABAEAAAAAAAAAAASwBAEAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T16:15:42.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConsultaPiezas.cs",
+              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaPiezas.cs",
+              "RelativeDocumentMoniker": "Taller de Mantenimiento\\ConsultaPiezas.cs",
+              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaPiezas.cs",
+              "RelativeToolTip": "Taller de Mantenimiento\\ConsultaPiezas.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAIwKMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:41:38.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Piezas.cs",
+              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Piezas.cs",
+              "RelativeDocumentMoniker": "Taller de Mantenimiento\\Piezas.cs",
+              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Piezas.cs",
+              "RelativeToolTip": "Taller de Mantenimiento\\Piezas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:14:54.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ConsultaVehiculo.cs",
               "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaVehiculo.cs",
               "RelativeDocumentMoniker": "Taller de Mantenimiento\\ConsultaVehiculo.cs",
               "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaVehiculo.cs",
               "RelativeToolTip": "Taller de Mantenimiento\\ConsultaVehiculo.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAiwI8AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwG4AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T11:57:55.048Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ConsultaCliente.cs",
-              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaCliente.cs",
-              "RelativeDocumentMoniker": "Taller de Mantenimiento\\ConsultaCliente.cs",
-              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaCliente.cs",
-              "RelativeToolTip": "Taller de Mantenimiento\\ConsultaCliente.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAIwLEAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T12:26:54.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Vehiculo.cs",
-              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Vehiculo.cs",
-              "RelativeDocumentMoniker": "Taller de Mantenimiento\\Vehiculo.cs",
-              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Vehiculo.cs",
-              "RelativeToolTip": "Taller de Mantenimiento\\Vehiculo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T11:55:56.515Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Clientes.cs",
-              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Clientes.cs",
-              "RelativeDocumentMoniker": "Taller de Mantenimiento\\Clientes.cs",
-              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Clientes.cs",
-              "RelativeToolTip": "Taller de Mantenimiento\\Clientes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T12:19:14.985Z"
             },
             {
               "$type": "Document",
@@ -105,37 +120,78 @@
               "RelativeDocumentMoniker": "Taller de Mantenimiento\\Form2.cs",
               "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form2.cs",
               "RelativeToolTip": "Taller de Mantenimiento\\Form2.cs",
-              "ViewState": "AgIAAJoBAAAAAAAAAAAowK4BAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAFACAAAAAAAAAAAowG0CAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T12:09:25.086Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConsultaCliente.cs",
+              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaCliente.cs",
+              "RelativeDocumentMoniker": "Taller de Mantenimiento\\ConsultaCliente.cs",
+              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\ConsultaCliente.cs",
+              "RelativeToolTip": "Taller de Mantenimiento\\ConsultaCliente.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowGcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T12:26:54.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Vehiculo.cs",
+              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Vehiculo.cs",
+              "RelativeDocumentMoniker": "Taller de Mantenimiento\\Vehiculo.cs",
+              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Vehiculo.cs",
+              "RelativeToolTip": "Taller de Mantenimiento\\Vehiculo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T11:55:56.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Clientes.cs",
+              "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Clientes.cs",
+              "RelativeDocumentMoniker": "Taller de Mantenimiento\\Clientes.cs",
+              "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Clientes.cs",
+              "RelativeToolTip": "Taller de Mantenimiento\\Clientes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T12:19:14.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form1.cs",
               "RelativeDocumentMoniker": "Taller de Mantenimiento\\Form1.cs",
               "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form1.cs",
               "RelativeToolTip": "Taller de Mantenimiento\\Form1.cs",
-              "ViewState": "AgIAALcAAAAAAAAAAAAIwIgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAQwIgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T12:03:12.482Z"
+              "WhenOpened": "2024-10-09T12:03:12.482Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form1.cs",
               "RelativeDocumentMoniker": "Taller de Mantenimiento\\Form1.cs",
               "ToolTip": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Taller de Mantenimiento\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T03:32:48.385Z"
+              "WhenOpened": "2024-10-09T03:32:48.385Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form2.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\Taller 2.0\\Taller de Mantenimiento\\Taller de Mantenimiento\\Form2.cs",
               "RelativeDocumentMoniker": "Taller de Mantenimiento\\Form2.cs",

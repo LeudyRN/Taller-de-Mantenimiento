@@ -34,6 +34,10 @@ namespace Taller_de_Mantenimiento
         private Vehiculo mcarga1;
         private ConsultaVehiculo mConsultaVehiculo;
 
+        private List<Piezas> mPiezas;
+        private Piezas mcarga2;
+        private ConsultaPiezas mConsultaPiezas;
+
         public Form2()
         {
 
@@ -52,6 +56,12 @@ namespace Taller_de_Mantenimiento
             mcarga1 = new Vehiculo();
             cargarVehiculo();
             textBox9.ReadOnly = true;
+
+            mPiezas = new List<Piezas>();
+            mConsultaPiezas = new ConsultaPiezas();
+            mcarga2 = new Piezas();
+            cargarPiezas();
+            textBox15.ReadOnly = true;
         }
 
         private void cargarClientes(string filtro = "")
@@ -107,6 +117,32 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void cargarPiezas(string filtro = "")
+        {
+            grid2.Items.Clear();
+            grid2.Refresh();
+            mPiezas.Clear();
+
+
+            mPiezas = mConsultaPiezas.getPiezas(filtro);
+
+
+            for (int i = 0; i < mPiezas.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mPiezas[i].id_pieza.ToString());
+
+             
+                item.SubItems.Add(mPiezas[i].nombre_pieza);
+                item.SubItems.Add(mPiezas[i].descripcion_pieza);
+                item.SubItems.Add(mPiezas[i].precio.ToString());
+                item.SubItems.Add(mPiezas[i].cantidad_disponible.ToString());
+
+                grid2.Items.Add(item);
+            }
+
+        }
+
         private void capturarDatosDelFormulario()
         {
       
@@ -125,6 +161,15 @@ namespace Taller_de_Mantenimiento
             mcarga1.modelo = textBox12.Text.Trim();
             mcarga1.ano = int.Parse(textBox13.Text.Trim());
             mcarga1.placa = textBox14.Text.Trim();
+        }
+
+        private void capturarDatosDelFormularioPiezas()
+        {
+
+            mcarga2.nombre_pieza = textBox16.Text.Trim();
+            mcarga2.descripcion_pieza = textBox17.Text.Trim();
+            mcarga2.precio = int.Parse(textBox18.Text.Trim());
+            mcarga2.cantidad_disponible = int.Parse(textBox20.Text.Trim());
         }
         //------------------------------------
         private void capturarDatosDelFormularioParaEliminar()
@@ -148,11 +193,23 @@ namespace Taller_de_Mantenimiento
           
         }
 
+        private void capturarDatosDelFormularioParaEliminarPiezas()
+        {
+            mcarga2.id_pieza = Convert.ToInt32(textBox15.Text.Trim());
+            mcarga2.nombre_pieza = textBox16.Text.Trim();
+            mcarga2.descripcion_pieza = textBox17.Text.Trim();
+            mcarga2.precio = Convert.ToInt32(textBox18.Text.Trim());
+            mcarga2.cantidad_disponible = Convert.ToInt32(textBox20.Text.Trim());
+         
+
+        }
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
             cargarClientes();
             cargarVehiculo();
+            cargarPiezas();
            // tabPage1.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
@@ -201,6 +258,15 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void LimpiarCampos2()
+        {
+            textBox15.Text = "";
+            textBox16.Text = "";
+            textBox17.Text = "";
+            textBox18.Text = "";
+            textBox20.Text = "";
+
+        }
 
         private bool datosCorrectos()
         {
@@ -273,6 +339,35 @@ namespace Taller_de_Mantenimiento
             if (string.IsNullOrWhiteSpace(textBox14.Text)) 
             {
                 MessageBox.Show("Ingrese la placa del vehículo");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool datosCorrectosPiezas() { 
+
+            if (string.IsNullOrWhiteSpace(textBox16.Text))
+            {
+                MessageBox.Show("Ingrese el nombre de la pieza");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox17.Text))
+            {
+                MessageBox.Show("Ingrese la descripcion de la pieza");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox18.Text))
+            {
+                MessageBox.Show("Ingrese el precio de la pieza");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox20.Text))
+            {
+                MessageBox.Show("Ingrese la cantidad de la pieza");
                 return false;
             }
 
@@ -437,6 +532,95 @@ namespace Taller_de_Mantenimiento
                 else
                 {
                     MessageBox.Show("No se pudo eliminar el Vehiculo");
+                }
+            }
+        }
+
+        private void materialButton7_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosPiezas())
+            {
+                return;
+            }
+
+            cargarPiezas();
+            capturarDatosDelFormularioPiezas();
+
+            if (mConsultaPiezas.agregarPiezas(mcarga2))
+            {
+
+                MessageBox.Show("Pieza agregada");
+                cargarPiezas();
+                LimpiarCampos2();
+            }
+        }
+
+        private void grid2_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (grid2.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = grid2.SelectedItems[0];
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int idPieza))
+                {
+                    textBox15.Text = idPieza.ToString();
+                    textBox16.Text = selectedItem.SubItems[1].Text;
+                    textBox17.Text = selectedItem.SubItems[2].Text;
+                    textBox18.Text = selectedItem.SubItems[3].Text;
+                    textBox20.Text = selectedItem.SubItems[4].Text;
+                    
+                }
+            }
+        }
+
+        private void textBox19_TextChanged(object sender, EventArgs e)
+        {
+            cargarPiezas(textBox19.Text.Trim());
+        }
+
+        private void materialButton8_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosPiezas())
+            {
+                return;
+            }
+
+            mcarga2.id_pieza = Convert.ToInt32(textBox15.Text.Trim());
+            mcarga2.nombre_pieza = textBox16.Text.Trim();
+            mcarga2.descripcion_pieza = textBox17.Text.Trim();
+            mcarga2.precio = Convert.ToInt32(textBox18.Text.Trim());
+            mcarga2.cantidad_disponible = Convert.ToInt32(textBox20.Text.Trim());
+            
+
+
+            if (mConsultaPiezas.modificarPiezas(mcarga2))
+            {
+                MessageBox.Show("Pieza modificada");
+                cargarPiezas();
+                capturarDatosDelFormularioPiezas();
+                LimpiarCampos2();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar la pieza.");
+            }
+        }
+
+        private void materialButton9_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea eliminar esta pieza?", "Eliminar pieza", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                capturarDatosDelFormularioParaEliminarPiezas();
+
+                if (mConsultaPiezas.eliminarPiezas(mcarga2))
+                {
+                    MessageBox.Show("Pieza eliminada");
+                    cargarPiezas();
+                    LimpiarCampos2();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar la pieza");
                 }
             }
         }
