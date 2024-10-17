@@ -33,7 +33,6 @@
             this.materialTextBox22 = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -55,7 +54,7 @@
             this.materialTextBox21.HideSelection = true;
             this.materialTextBox21.Hint = "Usuario";
             this.materialTextBox21.LeadingIcon = null;
-            this.materialTextBox21.Location = new System.Drawing.Point(86, 296);
+            this.materialTextBox21.Location = new System.Drawing.Point(66, 296);
             this.materialTextBox21.MaxLength = 32767;
             this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox21.Name = "materialTextBox21";
@@ -85,7 +84,7 @@
             this.materialTextBox22.HideSelection = true;
             this.materialTextBox22.Hint = "Contraseña";
             this.materialTextBox22.LeadingIcon = null;
-            this.materialTextBox22.Location = new System.Drawing.Point(86, 378);
+            this.materialTextBox22.Location = new System.Drawing.Point(66, 372);
             this.materialTextBox22.MaxLength = 32767;
             this.materialTextBox22.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox22.Name = "materialTextBox22";
@@ -112,7 +111,7 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(86, 547);
+            this.materialButton1.Location = new System.Drawing.Point(149, 505);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -128,39 +127,19 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(170, 125);
+            this.pictureBox2.Location = new System.Drawing.Point(149, 125);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(126, 130);
+            this.pictureBox2.Size = new System.Drawing.Size(136, 130);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
-            // 
-            // materialButton2
-            // 
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(281, 547);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(107, 36);
-            this.materialButton2.TabIndex = 5;
-            this.materialButton2.Text = "Registrate";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
             // 
             // materialCheckbox1
             // 
             this.materialCheckbox1.AutoSize = true;
             this.materialCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialCheckbox1.Depth = 0;
-            this.materialCheckbox1.Location = new System.Drawing.Point(150, 450);
+            this.materialCheckbox1.Location = new System.Drawing.Point(131, 442);
             this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -214,7 +193,6 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialCheckbox1);
-            this.Controls.Add(this.materialButton2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.materialTextBox22);
@@ -236,7 +214,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 materialTextBox22;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;

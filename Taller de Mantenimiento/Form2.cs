@@ -38,11 +38,18 @@ namespace Taller_de_Mantenimiento
         private Piezas mcarga2;
         private ConsultaPiezas mConsultaPiezas;
 
+        private List<Inventario> mInventario;
+        private Inventario mcarga3;
+        private ConsultaInventario mConsultaInventario;
+
+        private List<Servicios> mServicio;
+        private Servicios mcarga4;
+        private ConsultaServicio mConsultaServicio;
+
         public Form2()
         {
 
             InitializeComponent();
-
 
 
             mClientes = new List<Clientes>();
@@ -62,6 +69,18 @@ namespace Taller_de_Mantenimiento
             mcarga2 = new Piezas();
             cargarPiezas();
             textBox15.ReadOnly = true;
+
+            mInventario = new List<Inventario>();
+            mConsultaInventario = new ConsultaInventario();
+            mcarga3 = new Inventario();
+            cargarInventario();
+            textBox22.ReadOnly = true;
+
+            mServicio = new List<Servicios>();
+            mConsultaServicio = new ConsultaServicio();
+            mcarga4 = new Servicios();
+            cargarServicio();
+            textBox26.ReadOnly = true;
         }
 
         private void cargarClientes(string filtro = "")
@@ -143,6 +162,55 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void cargarInventario(string filtro = "")
+        {
+            grid3.Items.Clear();
+            grid3.Refresh();
+            mInventario.Clear();
+
+
+            mInventario = mConsultaInventario.getInventario(filtro);
+
+
+            for (int i = 0; i < mInventario.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mInventario[i].id_inventario.ToString());
+
+
+                item.SubItems.Add(mInventario[i].id_pieza.ToString());
+                item.SubItems.Add(mInventario[i].cantidad.ToString());
+                item.SubItems.Add(mInventario[i].ubicacion);
+
+                grid3.Items.Add(item);
+            }
+
+        }
+
+        private void cargarServicio(string filtro = "")
+        {
+            grid4.Items.Clear();
+            grid4.Refresh();
+            mServicio.Clear();
+
+
+            mServicio = mConsultaServicio.getServicios(filtro);
+
+
+            for (int i = 0; i < mServicio.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mServicio[i].id_servicio.ToString());
+
+                item.SubItems.Add(mServicio[i].descripcion);
+                item.SubItems.Add(mServicio[i].precio.ToString());
+                item.SubItems.Add(mServicio[i].tiempo_en_reparacion.ToString());
+
+                grid4.Items.Add(item);
+            }
+
+        }
+
         private void capturarDatosDelFormulario()
         {
       
@@ -170,6 +238,24 @@ namespace Taller_de_Mantenimiento
             mcarga2.descripcion_pieza = textBox17.Text.Trim();
             mcarga2.precio = int.Parse(textBox18.Text.Trim());
             mcarga2.cantidad_disponible = int.Parse(textBox20.Text.Trim());
+        }
+
+        private void capturarDatosDelFormularioInventario()
+        {
+
+            mcarga3.id_pieza = int.Parse(textBox23.Text.Trim());
+            mcarga3.cantidad = int.Parse(textBox24.Text.Trim());
+            mcarga3.ubicacion = textBox25.Text.Trim();
+        
+        }
+
+        private void capturarDatosDelFormularioServicio()
+        {
+
+            mcarga4.descripcion = textBox28.Text.Trim();
+            mcarga4.precio = decimal.Parse(textBox29.Text.Trim());
+            mcarga4.tiempo_en_reparacion = int.Parse(textBox30.Text.Trim());
+
         }
         //------------------------------------
         private void capturarDatosDelFormularioParaEliminar()
@@ -200,17 +286,35 @@ namespace Taller_de_Mantenimiento
             mcarga2.descripcion_pieza = textBox17.Text.Trim();
             mcarga2.precio = Convert.ToInt32(textBox18.Text.Trim());
             mcarga2.cantidad_disponible = Convert.ToInt32(textBox20.Text.Trim());
-         
+
+        }
+
+        private void capturarDatosDelFormularioParaEliminarInventario()
+        {
+            mcarga3.id_inventario = Convert.ToInt32(textBox22.Text.Trim());
+            mcarga3.id_pieza = Convert.ToInt32(textBox23.Text.Trim());
+            mcarga3.cantidad = Convert.ToInt32(textBox24.Text.Trim());
+            mcarga3.ubicacion = textBox25.Text.Trim();
+
+        }
+
+        private void capturarDatosDelFormularioParaEliminarServicio()
+        {
+            mcarga4.id_servicio = Convert.ToInt32(textBox26.Text.Trim());
+            mcarga4.descripcion = textBox28.Text.Trim();
+            mcarga4.precio = Convert.ToDecimal(textBox29.Text.Trim());
+            mcarga4.tiempo_en_reparacion = Convert.ToInt32(textBox30.Text.Trim());
 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
 
-            cargarClientes();
-            cargarVehiculo();
-            cargarPiezas();
-           // tabPage1.BackgroundImageLayout = ImageLayout.Stretch;
+            //cargarClientes();
+            //cargarVehiculo();
+            //cargarPiezas();
+            // tabPage1.BackgroundImageLayout = ImageLayout.Stretch;
+
         }
 
 
@@ -265,7 +369,22 @@ namespace Taller_de_Mantenimiento
             textBox17.Text = "";
             textBox18.Text = "";
             textBox20.Text = "";
+        }
 
+        private void LimpiarCampos3()
+        {
+            textBox22.Text = "";
+            textBox23.Text = "";
+            textBox24.Text = "";
+            textBox25.Text = "";
+        }
+
+        private void LimpiarCampos4()
+        {
+            textBox26.Text = "";
+            textBox28.Text = "";
+            textBox29.Text = "";
+            textBox30.Text = "";
         }
 
         private bool datosCorrectos()
@@ -374,6 +493,53 @@ namespace Taller_de_Mantenimiento
             return true;
         }
 
+        private bool datosCorrectosInventario()
+        {
+
+            if (string.IsNullOrWhiteSpace(textBox23.Text))
+            {
+                MessageBox.Show("Ingrese el id de la pieza");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox24.Text))
+            {
+                MessageBox.Show("Ingrese la cantidad");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox25.Text))
+            {
+                MessageBox.Show("Ingrese la ubicacion");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool datosCorrectosServicio()
+        {
+
+            if (string.IsNullOrWhiteSpace(textBox28.Text))
+            {
+                MessageBox.Show("Ingrese la descripcion del servicio");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox29.Text))
+            {
+                MessageBox.Show("Ingrese el precio del servicio");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox30.Text))
+            {
+                MessageBox.Show("Ingrese el tiempo de duracion del servicio");
+                return false;
+            }
+
+            return true;
+        }
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
@@ -623,6 +789,179 @@ namespace Taller_de_Mantenimiento
                     MessageBox.Show("No se pudo eliminar la pieza");
                 }
             }
+        }
+
+        private void grid3_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (grid3.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = grid3.SelectedItems[0];
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int idInventario))
+                {
+                    textBox22.Text = idInventario.ToString();
+                    textBox23.Text = selectedItem.SubItems[1].Text;
+                    textBox24.Text = selectedItem.SubItems[2].Text;
+                    textBox25.Text = selectedItem.SubItems[3].Text;
+
+                }
+            }
+        }
+
+        private void textBox21_TextChanged(object sender, EventArgs e)
+        {
+            cargarInventario(textBox21.Text.Trim());
+        }
+
+        private void materialButton10_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosInventario())
+            {
+                return;
+            }
+
+            cargarInventario();
+            capturarDatosDelFormularioInventario();
+
+            if (mConsultaInventario.agregarInventario(mcarga3))
+            {
+
+                MessageBox.Show("Inventario agregado");
+                cargarInventario();
+                LimpiarCampos3();
+            }
+        }
+
+        private void materialButton11_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosInventario())
+            {
+                return;
+            }
+            mcarga3.id_inventario = Convert.ToInt32(textBox22.Text.Trim());
+            mcarga3.id_pieza = Convert.ToInt32(textBox23.Text.Trim());
+            mcarga3.cantidad = Convert.ToInt32(textBox24.Text.Trim());
+            mcarga3.ubicacion = textBox25.Text.Trim();
+ 
+
+            if (mConsultaInventario.modificarInventario(mcarga3))
+            {
+                MessageBox.Show("Inventario modificado");
+                cargarInventario();
+                capturarDatosDelFormularioInventario();
+                LimpiarCampos3();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el inventario.");
+            }
+        }
+
+        private void materialButton12_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("¿Desea eliminar este inventario?", "Eliminar inventario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                capturarDatosDelFormularioParaEliminarInventario();
+
+                if (mConsultaInventario.eliminarInventario(mcarga3))
+                {
+                    MessageBox.Show("Inventario eliminado");
+                    cargarInventario();
+                    LimpiarCampos3();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el inventario");
+                }
+            }
+
+        }
+
+        private void grid4_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (grid4.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = grid4.SelectedItems[0];
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int idServicio))
+                {
+                    textBox26.Text = idServicio.ToString();
+                    textBox28.Text = selectedItem.SubItems[1].Text;
+                    textBox29.Text = selectedItem.SubItems[2].Text;
+                    textBox30.Text = selectedItem.SubItems[3].Text;
+
+                }
+            }
+        }
+
+        private void textBox27_TextChanged(object sender, EventArgs e)
+        {
+            cargarServicio(textBox27.Text.Trim());
+        }
+
+        private void materialButton13_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosServicio())
+            {
+                return;
+            }
+
+            cargarServicio();
+            capturarDatosDelFormularioServicio();
+
+            if (mConsultaServicio.agregarServicio(mcarga4))
+            {
+
+                MessageBox.Show("Servicio agregado");
+                cargarServicio();
+                LimpiarCampos4();
+            }
+        }
+
+        private void materialButton14_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosServicio())
+            {
+                return;
+            }
+            mcarga4.id_servicio = Convert.ToInt32(textBox26.Text.Trim());
+            mcarga4.descripcion = textBox28.Text.Trim();
+            mcarga4.precio = Convert.ToDecimal(textBox29.Text.Trim());
+            mcarga4.tiempo_en_reparacion = Convert.ToInt32(textBox30.Text.Trim());
+
+            if (mConsultaServicio.modificarServicios(mcarga4))
+            {
+                MessageBox.Show("Servicio modificado");
+                cargarServicio();
+                capturarDatosDelFormularioServicio();
+                LimpiarCampos4();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el servicio.");
+            }
+        }
+
+        private void materialButton15_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("¿Desea eliminar este servicio?", "Eliminar servicio", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                capturarDatosDelFormularioParaEliminarServicio();
+
+                if (mConsultaServicio.eliminarServicio(mcarga4))
+                {
+                    MessageBox.Show("Servicio eliminado");
+                    cargarServicio();
+                    LimpiarCampos4();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el servicio");
+                }
+            }
+
         }
     }
 }

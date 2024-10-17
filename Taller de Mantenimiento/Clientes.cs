@@ -16,5 +16,8 @@ namespace Taller_de_Mantenimiento
         public string direccion { get; set; }
         public string cedula { get; set; }
 
+
     }
+
+
 }

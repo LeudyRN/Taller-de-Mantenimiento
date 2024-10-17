@@ -72,7 +72,7 @@ namespace Taller_de_Mantenimiento
         internal bool agregarPiezas(Piezas mPiezas)
         {
             string insert = "INSERT INTO piezas (nombre_pieza, descripcion_pieza, precio, cantidad_disponible) " +
-                            "VALUES (@nombre_pieza, @descripcion_pieza, @precio, @cantidad_disponible)";
+                             "VALUES (@nombre_pieza, @descripcion_pieza, @precio, @cantidad_disponible);";
 
             try
             {
@@ -101,12 +101,9 @@ namespace Taller_de_Mantenimiento
 
         internal bool modificarPiezas(Piezas mpiezas)
         {
-            string update = "UPDATE piezas SET " +
-                            "nombre_pieza = @nombre_pieza, " +
-                            "descripcion_pieza = @descripcion_pieza, " +
-                            "precio = @precio, " +
-                            "cantidad_disponible = @cantidad_disponible " + 
-                            "WHERE id_pieza = @id_pieza;";
+            string update = "UPDATE piezas SET nombre_pieza = @nombre_pieza, " +
+                               "descripcion_pieza = @descripcion_pieza, precio = @precio, " +
+                               "cantidad_disponible = @cantidad_disponible WHERE id_pieza = @id_pieza;";
 
             try
             {
