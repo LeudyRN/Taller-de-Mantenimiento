@@ -140,6 +140,9 @@ namespace Taller_de_Mantenimiento
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.materialButton15 = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton14 = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton13 = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel30 = new MaterialSkin.Controls.MaterialLabel();
             this.textBox30 = new System.Windows.Forms.TextBox();
             this.textBox29 = new System.Windows.Forms.TextBox();
@@ -164,9 +167,15 @@ namespace Taller_de_Mantenimiento
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.materialButton13 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton14 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton15 = new MaterialSkin.Controls.MaterialButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -183,6 +192,10 @@ namespace Taller_de_Mantenimiento
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -201,11 +214,12 @@ namespace Taller_de_Mantenimiento
             this.materialTabControl1.Controls.Add(this.tabPage12);
             this.materialTabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.ItemSize = new System.Drawing.Size(60, 18);
+            this.materialTabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.materialTabControl1.ItemSize = new System.Drawing.Size(60, 30);
             this.materialTabControl1.Location = new System.Drawing.Point(3, 64);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
+            this.materialTabControl1.Padding = new System.Drawing.Point(9, 6);
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(1376, 583);
             this.materialTabControl1.TabIndex = 0;
@@ -213,6 +227,7 @@ namespace Taller_de_Mantenimiento
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.pictureBox5);
             this.tabPage1.Controls.Add(this.materialLabel7);
             this.tabPage1.Controls.Add(this.textBox7);
@@ -233,19 +248,19 @@ namespace Taller_de_Mantenimiento
             this.tabPage1.Controls.Add(this.materialButton2);
             this.tabPage1.Controls.Add(this.materialButton1);
             this.tabPage1.Controls.Add(this.grid);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage1.Size = new System.Drawing.Size(1368, 545);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Clientes";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(191, 77);
+            this.pictureBox5.Location = new System.Drawing.Point(42, 47);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(220, 154);
+            this.pictureBox5.Size = new System.Drawing.Size(74, 60);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 20;
             this.pictureBox5.TabStop = false;
@@ -258,7 +273,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel7.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel7.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel7.Location = new System.Drawing.Point(28, 274);
+            this.materialLabel7.Location = new System.Drawing.Point(62, 274);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(20, 19);
@@ -268,7 +283,7 @@ namespace Taller_de_Mantenimiento
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox7.Location = new System.Drawing.Point(102, 274);
+            this.textBox7.Location = new System.Drawing.Point(128, 275);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 18;
@@ -276,10 +291,10 @@ namespace Taller_de_Mantenimiento
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox6.Location = new System.Drawing.Point(387, 407);
+            this.textBox6.Location = new System.Drawing.Point(387, 406);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(212, 20);
+            this.textBox6.Size = new System.Drawing.Size(176, 20);
             this.textBox6.TabIndex = 17;
             // 
             // materialLabel6
@@ -314,7 +329,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel4.Depth = 0;
             this.materialLabel4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(28, 407);
+            this.materialLabel4.Location = new System.Drawing.Point(62, 406);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(68, 19);
@@ -327,7 +342,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel3.Depth = 0;
             this.materialLabel3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(28, 336);
+            this.materialLabel3.Location = new System.Drawing.Point(62, 336);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(54, 19);
@@ -366,17 +381,17 @@ namespace Taller_de_Mantenimiento
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox5.Location = new System.Drawing.Point(102, 407);
+            this.textBox5.Location = new System.Drawing.Point(128, 405);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(212, 20);
+            this.textBox5.Size = new System.Drawing.Size(176, 20);
             this.textBox5.TabIndex = 9;
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox4.Location = new System.Drawing.Point(102, 336);
+            this.textBox4.Location = new System.Drawing.Point(128, 336);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(212, 20);
+            this.textBox4.Size = new System.Drawing.Size(176, 20);
             this.textBox4.TabIndex = 8;
             // 
             // textBox3
@@ -384,7 +399,7 @@ namespace Taller_de_Mantenimiento
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
             this.textBox3.Location = new System.Drawing.Point(387, 274);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(212, 20);
+            this.textBox3.Size = new System.Drawing.Size(176, 20);
             this.textBox3.TabIndex = 7;
             // 
             // textBox2
@@ -392,7 +407,7 @@ namespace Taller_de_Mantenimiento
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
             this.textBox2.Location = new System.Drawing.Point(387, 337);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 20);
+            this.textBox2.Size = new System.Drawing.Size(176, 20);
             this.textBox2.TabIndex = 6;
             // 
             // pictureBox1
@@ -489,13 +504,13 @@ namespace Taller_de_Mantenimiento
             this.grid.Depth = 0;
             this.grid.FullRowSelect = true;
             this.grid.HideSelection = false;
-            this.grid.Location = new System.Drawing.Point(623, 132);
+            this.grid.Location = new System.Drawing.Point(603, 132);
             this.grid.MinimumSize = new System.Drawing.Size(200, 100);
             this.grid.MouseLocation = new System.Drawing.Point(-1, -1);
             this.grid.MouseState = MaterialSkin.MouseState.OUT;
             this.grid.Name = "grid";
             this.grid.OwnerDraw = true;
-            this.grid.Size = new System.Drawing.Size(703, 317);
+            this.grid.Size = new System.Drawing.Size(723, 317);
             this.grid.TabIndex = 0;
             this.grid.UseCompatibleStateImageBehavior = false;
             this.grid.View = System.Windows.Forms.View.Details;
@@ -534,6 +549,7 @@ namespace Taller_de_Mantenimiento
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.pictureBox6);
             this.tabPage2.Controls.Add(this.materialButton6);
             this.tabPage2.Controls.Add(this.materialButton5);
@@ -554,19 +570,19 @@ namespace Taller_de_Mantenimiento
             this.tabPage2.Controls.Add(this.materialLabel8);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.grid1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage2.Size = new System.Drawing.Size(1368, 545);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vehiculos";
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(181, 77);
+            this.pictureBox6.Location = new System.Drawing.Point(42, 47);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(259, 156);
+            this.pictureBox6.Size = new System.Drawing.Size(74, 60);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 35;
             this.pictureBox6.TabStop = false;
@@ -634,7 +650,7 @@ namespace Taller_de_Mantenimiento
             // textBox14
             // 
             this.textBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox14.Location = new System.Drawing.Point(396, 397);
+            this.textBox14.Location = new System.Drawing.Point(396, 396);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(212, 20);
             this.textBox14.TabIndex = 31;
@@ -666,9 +682,9 @@ namespace Taller_de_Mantenimiento
             // textBox10
             // 
             this.textBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox10.Location = new System.Drawing.Point(396, 274);
+            this.textBox10.Location = new System.Drawing.Point(396, 275);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(212, 20);
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
             this.textBox10.TabIndex = 27;
             // 
             // textBox9
@@ -809,7 +825,7 @@ namespace Taller_de_Mantenimiento
             this.grid1.Depth = 0;
             this.grid1.FullRowSelect = true;
             this.grid1.HideSelection = false;
-            this.grid1.Location = new System.Drawing.Point(623, 132);
+            this.grid1.Location = new System.Drawing.Point(625, 126);
             this.grid1.MinimumSize = new System.Drawing.Size(200, 100);
             this.grid1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.grid1.MouseState = MaterialSkin.MouseState.OUT;
@@ -854,6 +870,7 @@ namespace Taller_de_Mantenimiento
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.pictureBox7);
             this.tabPage3.Controls.Add(this.materialButton9);
             this.tabPage3.Controls.Add(this.materialButton8);
@@ -872,19 +889,19 @@ namespace Taller_de_Mantenimiento
             this.tabPage3.Controls.Add(this.textBox15);
             this.tabPage3.Controls.Add(this.materialLabel15);
             this.tabPage3.Controls.Add(this.grid2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage3.Size = new System.Drawing.Size(1368, 545);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Piezas";
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(213, 77);
+            this.pictureBox7.Location = new System.Drawing.Point(42, 47);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(183, 143);
+            this.pictureBox7.Size = new System.Drawing.Size(74, 60);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 43;
             this.pictureBox7.TabStop = false;
@@ -1151,6 +1168,7 @@ namespace Taller_de_Mantenimiento
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.White;
+            this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.pictureBox8);
             this.tabPage4.Controls.Add(this.materialButton12);
             this.tabPage4.Controls.Add(this.materialButton11);
@@ -1167,19 +1185,19 @@ namespace Taller_de_Mantenimiento
             this.tabPage4.Controls.Add(this.materialLabel21);
             this.tabPage4.Controls.Add(this.pictureBox4);
             this.tabPage4.Controls.Add(this.grid3);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage4.Size = new System.Drawing.Size(1368, 545);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Inventario";
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(232, 32);
+            this.pictureBox8.Location = new System.Drawing.Point(42, 47);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(204, 163);
+            this.pictureBox8.Size = new System.Drawing.Size(74, 60);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 52;
             this.pictureBox8.TabStop = false;
@@ -1252,7 +1270,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel25.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel25.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel25.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel25.Location = new System.Drawing.Point(280, 386);
+            this.materialLabel25.Location = new System.Drawing.Point(302, 386);
             this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel25.Name = "materialLabel25";
             this.materialLabel25.Size = new System.Drawing.Size(75, 19);
@@ -1267,7 +1285,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel24.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel24.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel24.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel24.Location = new System.Drawing.Point(280, 299);
+            this.materialLabel24.Location = new System.Drawing.Point(302, 299);
             this.materialLabel24.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel24.Name = "materialLabel24";
             this.materialLabel24.Size = new System.Drawing.Size(69, 19);
@@ -1282,7 +1300,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel23.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel23.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel23.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel23.Location = new System.Drawing.Point(56, 386);
+            this.materialLabel23.Location = new System.Drawing.Point(108, 386);
             this.materialLabel23.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel23.Name = "materialLabel23";
             this.materialLabel23.Size = new System.Drawing.Size(62, 19);
@@ -1297,7 +1315,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel22.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel22.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel22.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel22.Location = new System.Drawing.Point(56, 299);
+            this.materialLabel22.Location = new System.Drawing.Point(108, 299);
             this.materialLabel22.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel22.Name = "materialLabel22";
             this.materialLabel22.Size = new System.Drawing.Size(20, 19);
@@ -1317,13 +1335,13 @@ namespace Taller_de_Mantenimiento
             this.textBox24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
             this.textBox24.Location = new System.Drawing.Point(382, 298);
             this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(212, 20);
+            this.textBox24.Size = new System.Drawing.Size(100, 20);
             this.textBox24.TabIndex = 43;
             // 
             // textBox23
             // 
             this.textBox23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox23.Location = new System.Drawing.Point(145, 385);
+            this.textBox23.Location = new System.Drawing.Point(176, 385);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(100, 20);
             this.textBox23.TabIndex = 42;
@@ -1331,7 +1349,7 @@ namespace Taller_de_Mantenimiento
             // textBox22
             // 
             this.textBox22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox22.Location = new System.Drawing.Point(145, 299);
+            this.textBox22.Location = new System.Drawing.Point(176, 298);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(100, 20);
             this.textBox22.TabIndex = 41;
@@ -1416,6 +1434,7 @@ namespace Taller_de_Mantenimiento
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.White;
+            this.tabPage5.Controls.Add(this.label5);
             this.tabPage5.Controls.Add(this.materialButton15);
             this.tabPage5.Controls.Add(this.materialButton14);
             this.tabPage5.Controls.Add(this.materialButton13);
@@ -1432,12 +1451,72 @@ namespace Taller_de_Mantenimiento
             this.tabPage5.Controls.Add(this.textBox26);
             this.tabPage5.Controls.Add(this.materialLabel26);
             this.tabPage5.Controls.Add(this.pictureBox9);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage5.Size = new System.Drawing.Size(1368, 545);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Servicios";
+            // 
+            // materialButton15
+            // 
+            this.materialButton15.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton15.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton15.Depth = 0;
+            this.materialButton15.HighEmphasis = true;
+            this.materialButton15.Icon = null;
+            this.materialButton15.Location = new System.Drawing.Point(1038, 476);
+            this.materialButton15.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton15.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton15.Name = "materialButton15";
+            this.materialButton15.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton15.Size = new System.Drawing.Size(88, 36);
+            this.materialButton15.TabIndex = 68;
+            this.materialButton15.Text = "ELIMINAR";
+            this.materialButton15.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton15.UseAccentColor = false;
+            this.materialButton15.UseVisualStyleBackColor = true;
+            this.materialButton15.Click += new System.EventHandler(this.materialButton15_Click);
+            // 
+            // materialButton14
+            // 
+            this.materialButton14.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton14.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton14.Depth = 0;
+            this.materialButton14.HighEmphasis = true;
+            this.materialButton14.Icon = null;
+            this.materialButton14.Location = new System.Drawing.Point(749, 476);
+            this.materialButton14.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton14.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton14.Name = "materialButton14";
+            this.materialButton14.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton14.Size = new System.Drawing.Size(99, 36);
+            this.materialButton14.TabIndex = 67;
+            this.materialButton14.Text = "MODIFICAR";
+            this.materialButton14.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton14.UseAccentColor = false;
+            this.materialButton14.UseVisualStyleBackColor = true;
+            this.materialButton14.Click += new System.EventHandler(this.materialButton14_Click);
+            // 
+            // materialButton13
+            // 
+            this.materialButton13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton13.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton13.Depth = 0;
+            this.materialButton13.HighEmphasis = true;
+            this.materialButton13.Icon = null;
+            this.materialButton13.Location = new System.Drawing.Point(224, 476);
+            this.materialButton13.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton13.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton13.Name = "materialButton13";
+            this.materialButton13.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton13.Size = new System.Drawing.Size(88, 36);
+            this.materialButton13.TabIndex = 66;
+            this.materialButton13.Text = "Agregar";
+            this.materialButton13.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton13.UseAccentColor = false;
+            this.materialButton13.UseVisualStyleBackColor = true;
+            this.materialButton13.Click += new System.EventHandler(this.materialButton13_Click);
             // 
             // materialLabel30
             // 
@@ -1447,7 +1526,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel30.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel30.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel30.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel30.Location = new System.Drawing.Point(221, 378);
+            this.materialLabel30.Location = new System.Drawing.Point(224, 357);
             this.materialLabel30.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel30.Name = "materialLabel30";
             this.materialLabel30.Size = new System.Drawing.Size(159, 19);
@@ -1457,7 +1536,7 @@ namespace Taller_de_Mantenimiento
             // textBox30
             // 
             this.textBox30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox30.Location = new System.Drawing.Point(386, 377);
+            this.textBox30.Location = new System.Drawing.Point(394, 357);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(100, 20);
             this.textBox30.TabIndex = 64;
@@ -1465,7 +1544,7 @@ namespace Taller_de_Mantenimiento
             // textBox29
             // 
             this.textBox29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox29.Location = new System.Drawing.Point(85, 377);
+            this.textBox29.Location = new System.Drawing.Point(85, 357);
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(100, 20);
             this.textBox29.TabIndex = 63;
@@ -1478,7 +1557,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel29.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel29.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel29.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel29.Location = new System.Drawing.Point(37, 377);
+            this.materialLabel29.Location = new System.Drawing.Point(39, 357);
             this.materialLabel29.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel29.Name = "materialLabel29";
             this.materialLabel29.Size = new System.Drawing.Size(49, 19);
@@ -1488,7 +1567,7 @@ namespace Taller_de_Mantenimiento
             // textBox28
             // 
             this.textBox28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox28.Location = new System.Drawing.Point(386, 303);
+            this.textBox28.Location = new System.Drawing.Point(318, 302);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(212, 20);
             this.textBox28.TabIndex = 61;
@@ -1501,7 +1580,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel28.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel28.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel28.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel28.Location = new System.Drawing.Point(221, 303);
+            this.materialLabel28.Location = new System.Drawing.Point(224, 303);
             this.materialLabel28.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel28.Name = "materialLabel28";
             this.materialLabel28.Size = new System.Drawing.Size(88, 19);
@@ -1611,135 +1690,170 @@ namespace Taller_de_Mantenimiento
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(224, 77);
+            this.pictureBox9.Location = new System.Drawing.Point(42, 47);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(217, 166);
+            this.pictureBox9.Size = new System.Drawing.Size(74, 60);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 53;
             this.pictureBox9.TabStop = false;
             // 
             // tabPage6
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Controls.Add(this.pictureBox11);
+            this.tabPage6.Controls.Add(this.label7);
+            this.tabPage6.Location = new System.Drawing.Point(4, 34);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage6.Size = new System.Drawing.Size(1368, 545);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Ordenes de trabajo";
+            this.tabPage6.Text = "Orden de trabajo";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage7
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.AllowDrop = true;
+            this.tabPage7.Controls.Add(this.pictureBox12);
+            this.tabPage7.Controls.Add(this.label6);
+            this.tabPage7.Location = new System.Drawing.Point(4, 34);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage7.Size = new System.Drawing.Size(1368, 545);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Detalle de Orden de trabajo";
+            this.tabPage7.Text = "Detalle de Orden";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Location = new System.Drawing.Point(4, 34);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage8.Size = new System.Drawing.Size(1368, 545);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Factuiracion";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // tabPage9
             // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Location = new System.Drawing.Point(4, 34);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage9.Size = new System.Drawing.Size(1368, 545);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Ventas";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // tabPage10
             // 
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Location = new System.Drawing.Point(4, 34);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage10.Size = new System.Drawing.Size(1368, 545);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "Detalle de Ventas";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
             // tabPage11
             // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Location = new System.Drawing.Point(4, 34);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage11.Size = new System.Drawing.Size(1368, 545);
             this.tabPage11.TabIndex = 10;
-            this.tabPage11.Text = "Historial de Cambios";
+            this.tabPage11.Text = "Historial";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
             // tabPage12
             // 
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Location = new System.Drawing.Point(4, 34);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(1368, 557);
+            this.tabPage12.Size = new System.Drawing.Size(1368, 545);
             this.tabPage12.TabIndex = 11;
             this.tabPage12.Text = "Usuarios";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // materialButton13
+            // label1
             // 
-            this.materialButton13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton13.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton13.Depth = 0;
-            this.materialButton13.HighEmphasis = true;
-            this.materialButton13.Icon = null;
-            this.materialButton13.Location = new System.Drawing.Point(224, 476);
-            this.materialButton13.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton13.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton13.Name = "materialButton13";
-            this.materialButton13.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton13.Size = new System.Drawing.Size(88, 36);
-            this.materialButton13.TabIndex = 66;
-            this.materialButton13.Text = "Agregar";
-            this.materialButton13.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton13.UseAccentColor = false;
-            this.materialButton13.UseVisualStyleBackColor = true;
-            this.materialButton13.Click += new System.EventHandler(this.materialButton13_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(122, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 39);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Clientes";
             // 
-            // materialButton14
+            // label2
             // 
-            this.materialButton14.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton14.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton14.Depth = 0;
-            this.materialButton14.HighEmphasis = true;
-            this.materialButton14.Icon = null;
-            this.materialButton14.Location = new System.Drawing.Point(749, 476);
-            this.materialButton14.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton14.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton14.Name = "materialButton14";
-            this.materialButton14.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton14.Size = new System.Drawing.Size(99, 36);
-            this.materialButton14.TabIndex = 67;
-            this.materialButton14.Text = "MODIFICAR";
-            this.materialButton14.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton14.UseAccentColor = false;
-            this.materialButton14.UseVisualStyleBackColor = true;
-            this.materialButton14.Click += new System.EventHandler(this.materialButton14_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(122, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 39);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Vehiculos";
             // 
-            // materialButton15
+            // label3
             // 
-            this.materialButton15.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton15.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton15.Depth = 0;
-            this.materialButton15.HighEmphasis = true;
-            this.materialButton15.Icon = null;
-            this.materialButton15.Location = new System.Drawing.Point(1038, 476);
-            this.materialButton15.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton15.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton15.Name = "materialButton15";
-            this.materialButton15.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton15.Size = new System.Drawing.Size(88, 36);
-            this.materialButton15.TabIndex = 68;
-            this.materialButton15.Text = "ELIMINAR";
-            this.materialButton15.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton15.UseAccentColor = false;
-            this.materialButton15.UseVisualStyleBackColor = true;
-            this.materialButton15.Click += new System.EventHandler(this.materialButton15_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(122, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 39);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Piezas";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(122, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 39);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Inventario";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(122, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 39);
+            this.label5.TabIndex = 69;
+            this.label5.Text = "Servicios";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(122, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(425, 39);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Detalle de Orden de trabajo";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(122, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(273, 39);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Orden de Trabajo";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(42, 48);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(74, 60);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 53;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(42, 46);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(74, 60);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 53;
+            this.pictureBox12.TabStop = false;
             // 
             // Form2
             // 
@@ -1773,6 +1887,12 @@ namespace Taller_de_Mantenimiento
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1907,5 +2027,14 @@ namespace Taller_de_Mantenimiento
         private MaterialButton materialButton15;
         private MaterialButton materialButton14;
         private MaterialButton materialButton13;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label7;
+        private Label label6;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox12;
     }
 }

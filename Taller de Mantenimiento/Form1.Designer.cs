@@ -54,7 +54,7 @@
             this.materialTextBox21.HideSelection = true;
             this.materialTextBox21.Hint = "Usuario";
             this.materialTextBox21.LeadingIcon = null;
-            this.materialTextBox21.Location = new System.Drawing.Point(66, 296);
+            this.materialTextBox21.Location = new System.Drawing.Point(66, 353);
             this.materialTextBox21.MaxLength = 32767;
             this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox21.Name = "materialTextBox21";
@@ -84,7 +84,7 @@
             this.materialTextBox22.HideSelection = true;
             this.materialTextBox22.Hint = "Contraseña";
             this.materialTextBox22.LeadingIcon = null;
-            this.materialTextBox22.Location = new System.Drawing.Point(66, 372);
+            this.materialTextBox22.Location = new System.Drawing.Point(66, 433);
             this.materialTextBox22.MaxLength = 32767;
             this.materialTextBox22.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox22.Name = "materialTextBox22";
@@ -111,7 +111,7 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(149, 505);
+            this.materialButton1.Location = new System.Drawing.Point(140, 570);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -127,7 +127,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(149, 125);
+            this.pictureBox2.Location = new System.Drawing.Point(140, 179);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(136, 130);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -139,7 +139,7 @@
             this.materialCheckbox1.AutoSize = true;
             this.materialCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialCheckbox1.Depth = 0;
-            this.materialCheckbox1.Location = new System.Drawing.Point(131, 442);
+            this.materialCheckbox1.Location = new System.Drawing.Point(129, 502);
             this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -198,7 +198,7 @@
             this.Controls.Add(this.materialTextBox22);
             this.Controls.Add(this.materialTextBox21);
             this.Name = "Form1";
-            this.Text = "    Iniciar Session";
+            this.Text = "AutoLogic System";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
