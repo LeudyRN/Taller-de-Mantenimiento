@@ -46,6 +46,10 @@ namespace Taller_de_Mantenimiento
         private Servicios mcarga4;
         private ConsultaServicio mConsultaServicio;
 
+        private List<Orden> mOrden;
+        private Orden mcarga5;
+        private ConsultaOrden mConsultaOrden;
+
         public Form2()
         {
 
@@ -81,6 +85,12 @@ namespace Taller_de_Mantenimiento
             mcarga4 = new Servicios();
             cargarServicio();
             textBox26.ReadOnly = true;
+
+            mOrden = new List<Orden>();
+            mConsultaOrden = new ConsultaOrden();
+            mcarga5 = new Orden();
+            cargarOrden();
+            textBox32.ReadOnly = true;
         }
 
         private void cargarClientes(string filtro = "")
@@ -88,7 +98,6 @@ namespace Taller_de_Mantenimiento
             grid.Items.Clear();  
             grid.Refresh();     
             mClientes.Clear();
-         
     
             mClientes = mConsultaCliente.getClientes(filtro);
 
@@ -106,7 +115,6 @@ namespace Taller_de_Mantenimiento
 
                 grid.Items.Add(item);
             }
-
 
         }
 
@@ -211,6 +219,31 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void cargarOrden(string filtro = "")
+        {
+            grid5.Items.Clear();
+            grid5.Refresh();
+            mOrden.Clear();
+
+
+            mOrden = mConsultaOrden.getOrden(filtro);
+
+
+            for (int i = 0; i < mOrden.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mOrden[i].id_orden.ToString());
+
+                item.SubItems.Add(mOrden[i].id_vehiculo.ToString());
+                item.SubItems.Add(mOrden[i].fecha.ToString("yyyy-MM-dd"));
+                item.SubItems.Add(mOrden[i].estado.ToString());
+                item.SubItems.Add(mOrden[i].total.ToString());
+
+                grid5.Items.Add(item);
+            }
+
+        }
+
         private void capturarDatosDelFormulario()
         {
       
@@ -257,6 +290,30 @@ namespace Taller_de_Mantenimiento
             mcarga4.tiempo_en_reparacion = int.Parse(textBox30.Text.Trim());
 
         }
+
+        private void capturarDatosDelFormularioOrden()
+        {
+            try
+            {
+                mcarga5.id_vehiculo = int.Parse(textBox33.Text.Trim());
+
+                mcarga5.fecha = dateTimePicker1.Value;
+
+                mcarga5.estado = materialComboBox1.Text.Trim();
+
+                
+                mcarga5.total = decimal.Parse(textBox34.Text.Trim());
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Error de formato en los datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al capturar datos: " + ex.Message);
+            }
+        }
+
         //------------------------------------
         private void capturarDatosDelFormularioParaEliminar()
         {
@@ -304,6 +361,16 @@ namespace Taller_de_Mantenimiento
             mcarga4.descripcion = textBox28.Text.Trim();
             mcarga4.precio = Convert.ToDecimal(textBox29.Text.Trim());
             mcarga4.tiempo_en_reparacion = Convert.ToInt32(textBox30.Text.Trim());
+
+        }
+
+        private void capturarDatosDelFormularioParaEliminarOrden()
+        {
+            mcarga5.id_orden = int.Parse(textBox32.Text.Trim());
+            mcarga5.id_vehiculo = int.Parse(textBox33.Text.Trim());
+            mcarga5.fecha = DateTime.Parse(dateTimePicker1.Text.Trim());
+            mcarga5.estado = materialComboBox1.Text.Trim();
+            mcarga5.total = decimal.Parse(textBox34.Text.Trim());
 
         }
 
@@ -386,6 +453,16 @@ namespace Taller_de_Mantenimiento
             textBox29.Text = "";
             textBox30.Text = "";
         }
+
+        private void LimpiarCampos5()
+        {
+            textBox32.Text = "";
+            textBox33.Text = "";
+            materialComboBox1.Text = "";
+            textBox34.Text = "";
+            dateTimePicker1.Text = "";
+        }
+
 
         private bool datosCorrectos()
         {
@@ -535,6 +612,36 @@ namespace Taller_de_Mantenimiento
             if (string.IsNullOrWhiteSpace(textBox30.Text))
             {
                 MessageBox.Show("Ingrese el tiempo de duracion del servicio");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool datosCorrectosOrden()
+        {
+
+            if (string.IsNullOrWhiteSpace(textBox33.Text))
+            {
+                MessageBox.Show("Ingrese el id del vehiculo");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(dateTimePicker1.Text))
+            {
+                MessageBox.Show("Ingrese la fecha");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(materialComboBox1.Text))
+            {
+                MessageBox.Show("Ingrese el estado");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox34.Text))
+            {
+                MessageBox.Show("Ingrese el total");
                 return false;
             }
 
@@ -964,6 +1071,108 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void grid5_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+
+            if (grid5.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = grid5.SelectedItems[0];
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int id_orden))
+                {
+                    textBox32.Text = id_orden.ToString();
+                    textBox33.Text = selectedItem.SubItems[1].Text;
+                    string fechaTexto = selectedItem.SubItems[2].Text;
+
+                
+                    if (!string.IsNullOrEmpty(fechaTexto) && DateTime.TryParse(fechaTexto, out DateTime fecha))
+                    {
+                   
+                        if (fecha >= dateTimePicker1.MinDate && fecha <= dateTimePicker1.MaxDate)
+                        {
+                            dateTimePicker1.Value = fecha;
+                        }
+                        else
+                        {
+                            MessageBox.Show("La fecha está fuera del rango permitido.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fecha no es válida o está vacía.");
+                    }
+                    materialComboBox1.Text = selectedItem.SubItems[3].Text;
+                    textBox34.Text = selectedItem.SubItems[4].Text;
+                }
+            }
+        }
+
+        private void textBox31_TextChanged(object sender, EventArgs e)
+        {
+            cargarOrden(textBox31.Text.Trim());
+        }
+
+        private void materialButton16_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosOrden())
+            {
+                return;
+            }
+
+            cargarOrden();
+            capturarDatosDelFormularioOrden();
+
+            if (mConsultaOrden.agregarOrden(mcarga5))
+            {
+
+                MessageBox.Show("Orden agregada");
+                cargarOrden();
+                LimpiarCampos5();
+            }
+        }
+
+        private void materialButton17_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosOrden())
+            {
+                return;
+            }
+
+            mcarga5.id_orden = Convert.ToInt32(textBox32.Text.Trim()); 
+            mcarga5.id_vehiculo = Convert.ToInt32(textBox33.Text.Trim());
+            mcarga5.fecha = dateTimePicker1.Value; 
+            mcarga5.estado = materialComboBox1.Text.Trim(); 
+            mcarga5.total = Convert.ToDecimal(textBox34.Text.Trim()); 
+
+            if (mConsultaOrden.modificarOrden(mcarga5))
+            {
+                MessageBox.Show("Orden modificada correctamente.");
+                cargarOrden(); 
+                capturarDatosDelFormularioOrden(); 
+                LimpiarCampos5();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar la orden.");
+            }
+        }
+
+        private void materialButton18_Click(object sender, EventArgs e)
+        {
+            capturarDatosDelFormularioParaEliminarOrden();
+
+            if (mConsultaOrden.eliminarOrden(mcarga5))
+            {
+                MessageBox.Show("Orden eliminada");
+                cargarOrden();
+                LimpiarCampos5();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar el servicio");
+            }
+        }
     }
+    
 }
 
