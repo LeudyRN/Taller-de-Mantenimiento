@@ -25,7 +25,8 @@ namespace Taller_de_Mantenimiento
 
     public partial class Form2 : MaterialSkin.Controls.MaterialForm
     {
-
+        private ConexionMysql conexionMysql;
+        
         private List<Clientes> mClientes;
         private Clientes mcarga;
         private ConsultaCliente mConsultaCliente;
@@ -50,11 +51,18 @@ namespace Taller_de_Mantenimiento
         private Orden mcarga5;
         private ConsultaOrden mConsultaOrden;
 
+        private List<Detalle> mDetalle;
+        private Detalle mcarga6;
+        private ConsultaDetalle mConsultaDetalle;
+
         public Form2()
         {
 
             InitializeComponent();
-
+      
+            conexionMysql = new ConexionMysql();
+          
+            CargarServicios();
 
             mClientes = new List<Clientes>();
             mConsultaCliente = new ConsultaCliente();
@@ -91,6 +99,12 @@ namespace Taller_de_Mantenimiento
             mcarga5 = new Orden();
             cargarOrden();
             textBox32.ReadOnly = true;
+
+            mDetalle = new List<Detalle>();
+            mConsultaDetalle = new ConsultaDetalle();
+            mcarga6 = new Detalle();
+            cargarDetalle();
+            textBox37.ReadOnly = true;
         }
 
         private void cargarClientes(string filtro = "")
@@ -244,6 +258,31 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void cargarDetalle(string filtro = "")
+        {
+            grid6.Items.Clear();
+            grid6.Refresh();
+            mDetalle.Clear();
+
+
+            mDetalle = mConsultaDetalle.getDetalle(filtro);
+
+
+            for (int i = 0; i < mDetalle.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mDetalle[i].id_detalle.ToString());
+
+                item.SubItems.Add(mDetalle[i].id_orden.ToString());
+                item.SubItems.Add(mDetalle[i].id_servicio.ToString());
+                item.SubItems.Add(mDetalle[i].subtotal.ToString());
+
+                grid6.Items.Add(item);
+            }
+
+        }
+
+        //------------------------------------
         private void capturarDatosDelFormulario()
         {
       
@@ -314,6 +353,25 @@ namespace Taller_de_Mantenimiento
             }
         }
 
+        private void capturarDatosDelFormularioDetalle()
+        {
+            mcarga6.id_orden = int.Parse(textBox36.Text.Trim());
+
+            if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
+            {
+                mcarga6.id_servicio = selectedService.Key; 
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un servicio.");
+                return;
+            }
+
+            mcarga6.subtotal = decimal.Parse(textBox38.Text.Trim());
+        }
+
+
+
         //------------------------------------
         private void capturarDatosDelFormularioParaEliminar()
         {
@@ -374,6 +432,26 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void capturarDatosDelFormularioParaEliminarDetalle()
+        {
+            mcarga6.id_detalle = int.Parse(textBox37.Text.Trim());
+            mcarga6.id_orden = int.Parse(textBox36.Text.Trim());
+
+            if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
+            {
+                mcarga6.id_servicio = selectedService.Key;
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un servicio.");
+                return;
+            }
+
+            mcarga6.subtotal = decimal.Parse(textBox38.Text.Trim());
+
+        }
+
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -384,28 +462,6 @@ namespace Taller_de_Mantenimiento
 
         }
 
-
-        private void materialButton1_Click(object sender, EventArgs e)
-        {
-
-
-            if (!datosCorrectos())
-            {
-                return;
-            }
-
-            cargarClientes();
-            capturarDatosDelFormulario();
-
-            if (mConsultaCliente.agregarCliente(mcarga))
-            {
-
-                MessageBox.Show("Cliente agregado");
-                cargarClientes();
-                LimpiarCampos();
-            }
-
-        }
 
         private void LimpiarCampos()
         {
@@ -461,6 +517,14 @@ namespace Taller_de_Mantenimiento
             materialComboBox1.Text = "";
             textBox34.Text = "";
             dateTimePicker1.Text = "";
+        }
+
+        private void LimpiarCampos6()
+        {
+            textBox37.Text = "";
+            textBox36.Text = "";
+            textBox38.Text = "";
+            comboBoxServicios.Text = "";
         }
 
 
@@ -646,6 +710,47 @@ namespace Taller_de_Mantenimiento
             }
 
             return true;
+        }
+
+        private bool datosCorrectosDetalle()
+        {
+
+            if (string.IsNullOrWhiteSpace(textBox36.Text))
+            {
+                MessageBox.Show("Ingrese el id de la orden");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(comboBoxServicios.Text))
+            {
+                MessageBox.Show("Ingrese el Servicio");
+                return false;
+            }
+
+            return true;
+        }
+
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+
+
+            if (!datosCorrectos())
+            {
+                return;
+            }
+
+            cargarClientes();
+            capturarDatosDelFormulario();
+
+            if (mConsultaCliente.agregarCliente(mcarga))
+            {
+
+                MessageBox.Show("Cliente agregado");
+                cargarClientes();
+                LimpiarCampos();
+            }
+
         }
 
         private void materialButton2_Click(object sender, EventArgs e)
@@ -1172,7 +1277,152 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("No se pudo eliminar el servicio");
             }
         }
+
+        private void CargarServicios()
+        {
+            string query = "SELECT id_servicio, descripcion FROM servicios";
+            using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
+            {
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBoxServicios.Items.Add(new KeyValuePair<int, string>(reader.GetInt32("id_servicio"), reader.GetString("descripcion")));
+                }
+                reader.Close();
+            }
+            comboBoxServicios.DisplayMember = "Value";
+            comboBoxServicios.ValueMember = "Key";
+        }
+
+        private void comboBoxServicios_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+            if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
+            {
+                int idServicio = selectedService.Key;
+
+                string query = "SELECT precio FROM servicios WHERE id_servicio = @id_servicio";
+                using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@id_servicio", idServicio);
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        decimal precio = Convert.ToDecimal(result);
+                        textBox38.Text = precio.ToString("0.00");
+                    }
+                }
+            }
+
+        }
+        private void SeleccionarServicioComboBox(int id_servicio)
+        {
+            foreach (var item in comboBoxServicios.Items)
+            {
+                var servicio = (KeyValuePair<int, string>)item;
+                if (servicio.Key == id_servicio)
+                {
+                    comboBoxServicios.SelectedItem = item;
+                    return;
+                }
+            }
+        }
+
+        private void grid6_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+          
+            if (grid6.SelectedItems.Count > 0)
+            {
+            
+                ListViewItem selectedItem = grid6.SelectedItems[0];
+
+             
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int id_detalle))
+                {
+                    textBox37.Text = id_detalle.ToString();
+                    textBox36.Text = selectedItem.SubItems[1].Text;
+
+                 
+                    if (int.TryParse(selectedItem.SubItems[2].Text, out int id_servicio))
+                    {
+                        SeleccionarServicioComboBox(id_servicio); 
+                    }
+
+                    // Asigna el subtotal al TextBox38
+                    textBox38.Text = selectedItem.SubItems[3].Text;
+                }
+            }
+        }
+
+
+        private void textBox35_TextChanged(object sender, EventArgs e)
+        {
+            cargarDetalle(textBox35.Text.Trim());
+        }
+
+        private void materialButton19_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosDetalle())
+            {
+                return;
+            }
+
+            cargarDetalle();
+            capturarDatosDelFormularioDetalle();
+
+            if (mConsultaDetalle.agregarDetalle(mcarga6))
+            {
+
+                MessageBox.Show("Detalle agregado");
+                cargarDetalle();
+                LimpiarCampos6();
+            }
+        }
+
+        private void materialButton20_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectosDetalle())
+            {
+                return; 
+            }
+
+            mcarga6.id_detalle = Convert.ToInt32(textBox37.Text.Trim());
+            mcarga6.id_orden = Convert.ToInt32(textBox36.Text.Trim());
+            mcarga6.subtotal = Convert.ToDecimal(textBox38.Text.Trim());
+
+            string nombreServicio = comboBoxServicios.Text.Trim();
+
+            if (mConsultaDetalle.modificarDetalle(mcarga6, nombreServicio))
+            {
+                MessageBox.Show("Detalle modificado correctamente.");
+                cargarDetalle();
+                capturarDatosDelFormularioDetalle();
+                LimpiarCampos6();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar la orden.");
+            }
+        }
+
+
+
+
+        private void materialButton21_Click(object sender, EventArgs e)
+        {
+            capturarDatosDelFormularioParaEliminarDetalle();
+
+            if (mConsultaDetalle.eliminarDetalle(mcarga6))
+            {
+                MessageBox.Show("Detalle eliminado");
+                cargarDetalle();
+                LimpiarCampos6();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar el servicio");
+            }
+        }
     }
-    
 }
 

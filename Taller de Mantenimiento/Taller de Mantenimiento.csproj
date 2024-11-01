@@ -80,11 +80,13 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="ConexionMysql.cs" />
     <Compile Include="ConsultaCliente.cs" />
+    <Compile Include="ConsultaDetalle.cs" />
     <Compile Include="ConsultaInventario.cs" />
     <Compile Include="ConsultaOrden.cs" />
     <Compile Include="ConsultaPiezas.cs" />
     <Compile Include="ConsultaServicio.cs" />
     <Compile Include="ConsultaVehiculo.cs" />
+    <Compile Include="Detalle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -54,7 +54,7 @@
             this.materialTextBox21.HideSelection = true;
             this.materialTextBox21.Hint = "Usuario";
             this.materialTextBox21.LeadingIcon = null;
-            this.materialTextBox21.Location = new System.Drawing.Point(66, 353);
+            this.materialTextBox21.Location = new System.Drawing.Point(46, 353);
             this.materialTextBox21.MaxLength = 32767;
             this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox21.Name = "materialTextBox21";
@@ -66,7 +66,7 @@
             this.materialTextBox21.SelectionLength = 0;
             this.materialTextBox21.SelectionStart = 0;
             this.materialTextBox21.ShortcutsEnabled = true;
-            this.materialTextBox21.Size = new System.Drawing.Size(302, 48);
+            this.materialTextBox21.Size = new System.Drawing.Size(343, 48);
             this.materialTextBox21.TabIndex = 1;
             this.materialTextBox21.TabStop = false;
             this.materialTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -84,7 +84,7 @@
             this.materialTextBox22.HideSelection = true;
             this.materialTextBox22.Hint = "Contraseña";
             this.materialTextBox22.LeadingIcon = null;
-            this.materialTextBox22.Location = new System.Drawing.Point(66, 433);
+            this.materialTextBox22.Location = new System.Drawing.Point(46, 433);
             this.materialTextBox22.MaxLength = 32767;
             this.materialTextBox22.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox22.Name = "materialTextBox22";
@@ -96,7 +96,7 @@
             this.materialTextBox22.SelectionLength = 0;
             this.materialTextBox22.SelectionStart = 0;
             this.materialTextBox22.ShortcutsEnabled = true;
-            this.materialTextBox22.Size = new System.Drawing.Size(302, 48);
+            this.materialTextBox22.Size = new System.Drawing.Size(343, 48);
             this.materialTextBox22.TabIndex = 2;
             this.materialTextBox22.TabStop = false;
             this.materialTextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -127,9 +127,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(140, 179);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 67);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(136, 130);
+            this.pictureBox2.Size = new System.Drawing.Size(423, 264);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1058, 668);
+            this.ClientSize = new System.Drawing.Size(1102, 668);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
