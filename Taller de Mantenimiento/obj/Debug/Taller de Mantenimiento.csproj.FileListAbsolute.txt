@@ -27,3 +27,7 @@ D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.N
 D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\obj\Debug\Taller_de_Mantenimiento.Form2.resources
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\BouncyCastle.Cryptography.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\itextsharp.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\BouncyCastle.Cryptography.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\itextsharp.xml

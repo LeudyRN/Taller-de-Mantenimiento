@@ -15,5 +15,7 @@ namespace Taller_de_Mantenimiento
         public int id_servicio { get; set; }
 
         public decimal subtotal { get; set; }
+
+        public string descripcion_servicio { get; set; }
     }
 }

@@ -54,7 +54,8 @@
             this.materialTextBox21.HideSelection = true;
             this.materialTextBox21.Hint = "Usuario";
             this.materialTextBox21.LeadingIcon = null;
-            this.materialTextBox21.Location = new System.Drawing.Point(46, 353);
+            this.materialTextBox21.Location = new System.Drawing.Point(54, 434);
+            this.materialTextBox21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialTextBox21.MaxLength = 32767;
             this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox21.Name = "materialTextBox21";
@@ -66,7 +67,7 @@
             this.materialTextBox21.SelectionLength = 0;
             this.materialTextBox21.SelectionStart = 0;
             this.materialTextBox21.ShortcutsEnabled = true;
-            this.materialTextBox21.Size = new System.Drawing.Size(343, 48);
+            this.materialTextBox21.Size = new System.Drawing.Size(400, 48);
             this.materialTextBox21.TabIndex = 1;
             this.materialTextBox21.TabStop = false;
             this.materialTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -84,7 +85,8 @@
             this.materialTextBox22.HideSelection = true;
             this.materialTextBox22.Hint = "Contraseña";
             this.materialTextBox22.LeadingIcon = null;
-            this.materialTextBox22.Location = new System.Drawing.Point(46, 433);
+            this.materialTextBox22.Location = new System.Drawing.Point(54, 533);
+            this.materialTextBox22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialTextBox22.MaxLength = 32767;
             this.materialTextBox22.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox22.Name = "materialTextBox22";
@@ -96,7 +98,7 @@
             this.materialTextBox22.SelectionLength = 0;
             this.materialTextBox22.SelectionStart = 0;
             this.materialTextBox22.ShortcutsEnabled = true;
-            this.materialTextBox22.Size = new System.Drawing.Size(343, 48);
+            this.materialTextBox22.Size = new System.Drawing.Size(400, 48);
             this.materialTextBox22.TabIndex = 2;
             this.materialTextBox22.TabStop = false;
             this.materialTextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -111,8 +113,8 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(150, 570);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.Location = new System.Drawing.Point(175, 702);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -127,9 +129,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 67);
+            this.pictureBox2.Location = new System.Drawing.Point(97, 181);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(423, 264);
+            this.pictureBox2.Size = new System.Drawing.Size(288, 170);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -139,7 +142,7 @@
             this.materialCheckbox1.AutoSize = true;
             this.materialCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialCheckbox1.Depth = 0;
-            this.materialCheckbox1.Location = new System.Drawing.Point(129, 502);
+            this.materialCheckbox1.Location = new System.Drawing.Point(150, 628);
             this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -155,9 +158,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(847, 88);
+            this.pictureBox1.Location = new System.Drawing.Point(988, 108);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(180, 549);
+            this.pictureBox1.Size = new System.Drawing.Size(210, 676);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -166,9 +170,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(641, 88);
+            this.pictureBox3.Location = new System.Drawing.Point(748, 108);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(183, 549);
+            this.pictureBox3.Size = new System.Drawing.Size(214, 676);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
@@ -176,19 +181,20 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(435, 88);
+            this.pictureBox4.Location = new System.Drawing.Point(507, 108);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(182, 549);
+            this.pictureBox4.Size = new System.Drawing.Size(212, 676);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1102, 668);
+            this.ClientSize = new System.Drawing.Size(1286, 822);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
@@ -197,8 +203,11 @@
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.materialTextBox22);
             this.Controls.Add(this.materialTextBox21);
+            this.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
-            this.Text = "AutoLogic System";
+            this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
+            this.Text = "AUTOLOGIC SYSTEM";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

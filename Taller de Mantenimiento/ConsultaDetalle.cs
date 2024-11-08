@@ -23,40 +23,45 @@ namespace Taller_de_Mantenimiento
 
         public List<Detalle> getDetalle(string filtro)
         {
-            string query = "SELECT * FROM detalles_ordenes_de_trabajo";
-            MySqlDataReader mReader = null;
+            string query = @"
+        SELECT do.id_detalle, do.id_orden, s.descripcion AS descripcion_servicio, do.subtotal
+        FROM detalles_ordenes_de_trabajo do
+        JOIN servicios s ON do.id_servicio = s.id_servicio";
+
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                query += " WHERE do.id_detalle LIKE @filtro OR " +
+                         "do.id_orden LIKE @filtro OR " +
+                         "s.descripcion LIKE @filtro OR " +
+                         "do.subtotal LIKE @filtro";
+            }
+
             List<Detalle> detalle = new List<Detalle>();
 
             try
             {
-                if (filtro != "")
-                {
-                    query += " WHERE " +
-                             "id_detalle LIKE '%" + filtro + "%' OR " +
-                             "id_orden LIKE '%" + filtro + "%' OR " +
-                             "id_servicio LIKE '%" + filtro + "%' OR " +
-                             "subtotal LIKE '%" + filtro + "%';";
-                }
-
                 using (MySqlCommand mcomando = new MySqlCommand(query, conexionMysql.GetConnection()))
                 {
-                    mReader = mcomando.ExecuteReader();
-
-                    while (mReader.Read())
+                    if (!string.IsNullOrEmpty(filtro))
                     {
-                        Detalle mDetalle = new Detalle
-                        {
-                            id_detalle = mReader.GetInt32("id_detalle"),
-                            id_orden = mReader.GetInt32("id_orden"),
-                            id_servicio = mReader.GetInt32("id_servicio"),
-                            subtotal = mReader.GetDecimal("subtotal"),
+                        mcomando.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+                    }
 
-                        };
-                        detalle.Add(mDetalle);
+                    using (MySqlDataReader mReader = mcomando.ExecuteReader())
+                    {
+                        while (mReader.Read())
+                        {
+                            Detalle mDetalle = new Detalle
+                            {
+                                id_detalle = mReader.GetInt32("id_detalle"),
+                                id_orden = mReader.GetInt32("id_orden"),
+                                descripcion_servicio = mReader.GetString("descripcion_servicio"),
+                                subtotal = mReader.GetDecimal("subtotal")
+                            };
+                            detalle.Add(mDetalle);
+                        }
                     }
                 }
-
-                mReader.Close();
             }
             catch (Exception e)
             {
@@ -65,6 +70,8 @@ namespace Taller_de_Mantenimiento
 
             return detalle;
         }
+
+
 
         internal bool agregarDetalle(Detalle mDetalle)
         {
