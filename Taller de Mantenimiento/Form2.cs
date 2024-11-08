@@ -1390,8 +1390,74 @@ namespace Taller_de_Mantenimiento
             }
         }
 
-
         private void comboBoxServicios_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
+            {
+                int idServicio = selectedService.Key;
+
+              
+                int idOrden;
+                if (!int.TryParse(textBox34.Text, out idOrden))  
+                {
+                 
+                    return;
+                }
+
+                // Modificamos la consulta para obtener tanto el precio del servicio como el total de la orden
+                string query = @"
+                                SELECT 
+                                    s.precio, 
+                                    SUM(do.subtotal) AS totalOrden
+                                FROM 
+                                    servicios s
+                                LEFT JOIN 
+                                    detalles_ordenes_de_trabajo do ON s.id_servicio = do.id_servicio
+                                WHERE 
+                                    s.id_servicio = @id_servicio AND do.id_orden = @id_orden
+                                GROUP BY 
+                                    s.precio, do.id_orden";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
+                {
+                    try
+                    {
+                        // Agregamos los parámetros
+                        cmd.Parameters.AddWithValue("@id_servicio", idServicio);
+                        cmd.Parameters.AddWithValue("@id_orden", idOrden);
+
+                        // Ejecutamos la consulta y obtenemos el resultado
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Obtenemos el precio del servicio y el total de la orden
+                                decimal precioServicio = reader.IsDBNull(reader.GetOrdinal("precio")) ? 0.00m : reader.GetDecimal("precio");
+                                decimal totalOrden = reader.IsDBNull(reader.GetOrdinal("totalOrden")) ? 0.00m : reader.GetDecimal("totalOrden");
+
+                                // Asignamos el precio del servicio a textBox38
+                                textBox38.Text = precioServicio.ToString("0.00");
+
+                                // Puedes hacer lo que necesites con el total de la orden, por ejemplo:
+                                // totalTextBox.Text = totalOrden.ToString("0.00");
+                            }
+                            else
+                            {
+                                // Si no se encuentran resultados, asignamos valores por defecto
+                                textBox38.Text = "0.00"; // Precio del servicio
+                                                         // totalTextBox.Text = "0.00"; // Total de la orden
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al obtener los datos: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+    /*    private void comboBoxServicios_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
             {
@@ -1421,6 +1487,7 @@ namespace Taller_de_Mantenimiento
                 }
             }
         }
+        */
 
         private void grid6_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {

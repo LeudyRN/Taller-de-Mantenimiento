@@ -27,21 +27,25 @@ namespace Taller_de_Mantenimiento
 
         public List<Factura> getFactura(string filtro)
         {
-            string query = "SELECT * FROM facturacion";
+            string query = @"
+        SELECT f.id_factura, f.id_orden, f.fecha, 
+               (SELECT SUM(do.subtotal) FROM detalles_ordenes_de_trabajo do WHERE do.id_orden = f.id_orden) AS total 
+        FROM facturacion f";
+
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                query += " WHERE " +
+                          "f.id_factura LIKE '%" + filtro + "%' OR " +
+                          "f.id_orden LIKE '%" + filtro + "%' OR " +
+                          "f.fecha LIKE '%" + filtro + "%' OR " +
+                          "f.total LIKE '%" + filtro + "%';";
+            }
+
             MySqlDataReader mReader = null;
             List<Factura> facturas = new List<Factura>();
 
             try
             {
-                if (filtro != "")
-                {
-                    query += " WHERE " +
-                              "id_factura LIKE '%" + filtro + "%' OR " +
-                              "id_orden LIKE '%" + filtro + "%' OR " +
-                              "fecha LIKE '%" + filtro + "%' OR " +
-                              "total LIKE '%" + filtro + "%';";
-                }
-
                 using (MySqlCommand mcomando = new MySqlCommand(query, conexionMysql.GetConnection()))
                 {
                     mReader = mcomando.ExecuteReader();
@@ -56,10 +60,12 @@ namespace Taller_de_Mantenimiento
                                     ? DateTime.MinValue
                                     : mReader.GetDateTime("fecha"),
 
-                            total = mReader.GetDecimal("total"),
-
+                            // Aquí obtenemos el total calculado desde los detalles de la orden
+                            total = mReader.IsDBNull(mReader.GetOrdinal("total"))
+                                    ? 0
+                                    : mReader.GetDecimal("total"),
                         };
-                        mfactura.Add(mFactura);
+                        facturas.Add(mFactura);
                     }
                 }
 
@@ -70,7 +76,7 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("Error: " + e.Message);
             }
 
-            return mfactura;
+            return facturas;
         }
 
         internal bool GenerarFacturaPDF(int idOrden)

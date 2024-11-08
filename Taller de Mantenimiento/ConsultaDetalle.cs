@@ -75,6 +75,9 @@ namespace Taller_de_Mantenimiento
 
         internal bool agregarDetalle(Detalle mDetalle)
         {
+
+           // EjecutarActualizarTotalOrdenes();
+
             string insert = "INSERT INTO detalles_ordenes_de_trabajo (id_orden, id_servicio, subtotal) " +
                            "VALUES (@id_orden, @id_servicio, @subtotal);";
 
@@ -87,7 +90,9 @@ namespace Taller_de_Mantenimiento
                     mCommand.Parameters.Add(new MySqlParameter("@subtotal", mDetalle.subtotal));
 
                     return mCommand.ExecuteNonQuery() > 0;
+
                 }
+
             }
             catch (MySqlException ex)
             {
@@ -99,6 +104,8 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            
         }
 
         private int ObtenerIdServicioPorNombre(string descripcion)
@@ -130,7 +137,8 @@ namespace Taller_de_Mantenimiento
 
         internal bool modificarDetalle(Detalle mdetalle, string descripcion)
         {
-            
+           // EjecutarActualizarTotalOrdenes();
+
             int idServicio = ObtenerIdServicioPorNombre(descripcion);
             if (idServicio == -1)
             {
@@ -174,6 +182,8 @@ namespace Taller_de_Mantenimiento
 
         internal bool eliminarDetalle(Detalle mdetalle)
         {
+           // EjecutarActualizarTotalOrdenes();
+
             string DELETE = "DELETE FROM detalles_ordenes_de_trabajo WHERE id_detalle = @id_detalle";
 
             try
@@ -195,6 +205,25 @@ namespace Taller_de_Mantenimiento
                 return false;
             }
         }
+
+        public void EjecutarActualizarTotalOrdenes()
+        {
+            string query = "CALL ActualizarTotalOrdenes();";
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
+                {
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    MessageBox.Show($"{rowsAffected} orden(es) actualizada(s) correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ejecutar el procedimiento: " + ex.Message);
+            }
+        }
+
 
     }
 }
