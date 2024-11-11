@@ -101,7 +101,6 @@ namespace Taller_de_Mantenimiento
             }
         }
 
-
         internal bool modificarOrden(Orden morden)
         {
             string update = "UPDATE ordenes_de_trabajo SET id_vehiculo = @id_vehiculo, fecha = @fecha, estado = @estado, total = @total " +

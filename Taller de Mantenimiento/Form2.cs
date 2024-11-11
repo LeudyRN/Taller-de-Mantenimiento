@@ -60,6 +60,14 @@ namespace Taller_de_Mantenimiento
         private Factura mcarga7;
         private ConsultaFactura mConsultaFactura;
 
+        private List<Ventas> mVentas;
+        private Ventas mcarga8;
+        private ConsultaVenta mConsultaVenta;
+
+        private List<DetalleVentas> mDetalleVentas;
+        private DetalleVentas mcarga9;
+        private ConsultaDetalleVentas mConsultaDetalleVentas;
+
         public Form2()
         {
 
@@ -118,6 +126,19 @@ namespace Taller_de_Mantenimiento
             cargarFactura();
             textBox40.ReadOnly = true;
             textBox41.ReadOnly = true;
+
+            mVentas = new List<Ventas>();
+            mConsultaVenta = new ConsultaVenta();
+            mcarga8 = new Ventas();
+            cargarVentas();
+            textBox46.ReadOnly = true;
+
+            mDetalleVentas = new List<DetalleVentas>();
+            mConsultaDetalleVentas = new ConsultaDetalleVentas();
+            mcarga9 = new DetalleVentas();
+            cargarDetalleVentas();
+            textBox48.ReadOnly = true;
+
         }
 
         private void cargarClientes(string filtro = "")
@@ -323,6 +344,58 @@ namespace Taller_de_Mantenimiento
 
         }
 
+        private void cargarVentas(string filtro = "")
+        {
+            grid8.Items.Clear();
+            grid8.Refresh();
+            mVentas.Clear();
+
+
+            mVentas = mConsultaVenta.getVentas(filtro);
+
+
+            for (int i = 0; i < mVentas.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mVentas[i].id_venta.ToString());
+
+                item.SubItems.Add(mVentas[i].id_cliente.ToString());
+                item.SubItems.Add(mVentas[i].fecha.ToString("yyyy-MM-dd"));
+                item.SubItems.Add(mVentas[i].total.ToString());
+                item.SubItems.Add(mVentas[i].metodo_pago.ToString());
+
+                grid8.Items.Add(item);
+            }
+
+        }
+
+        private void cargarDetalleVentas(string filtro = "")
+        {
+            grid9.Items.Clear();
+            grid9.Refresh();
+            mDetalleVentas.Clear();
+
+
+            mDetalleVentas = mConsultaDetalleVentas.getDetalleVentas(filtro);
+
+
+            for (int i = 0; i < mDetalleVentas.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mDetalleVentas[i].id_detalle_venta.ToString());
+
+                item.SubItems.Add(mDetalleVentas[i].id_venta.ToString());
+                item.SubItems.Add(mDetalleVentas[i].id_pieza.ToString());
+                item.SubItems.Add(mDetalleVentas[i].id_servicio.ToString());
+                item.SubItems.Add(mDetalleVentas[i].cantidad.ToString());
+                item.SubItems.Add(mDetalleVentas[i].precio_unitario.ToString());
+                item.SubItems.Add(mDetalleVentas[i].subtotal.ToString());
+
+                grid9.Items.Add(item);
+            }
+
+        }
+
 
         //------------------------------------
         private void capturarDatosDelFormulario()
@@ -419,6 +492,30 @@ namespace Taller_de_Mantenimiento
             
         }
 
+        private void capturarDatosDelFormularioVentas()
+        {
+            try
+            {
+                mcarga8.id_cliente = int.Parse(textBox44.Text.Trim());
+
+                mcarga8.fecha = dateTimePicker3.Value;
+
+                mcarga8.total = decimal.Parse(textBox45.Text.Trim());
+
+                mcarga8.metodo_pago = materialComboBox2.Text.Trim();
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Error de formato en los datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al capturar datos: " + ex.Message);
+            }
+        }
+
+
         //------------------------------------
         private void capturarDatosDelFormularioParaEliminar()
         {
@@ -506,6 +603,31 @@ namespace Taller_de_Mantenimiento
             mcarga7.total = decimal.Parse(textBox41.Text.Trim());
         }
 
+        private void capturarDatosDelFormularioParaEliminarVentas()
+        {
+            try
+            {
+                mcarga8.id_venta = int.Parse(textBox46.Text.Trim());
+
+                mcarga8.id_cliente = int.Parse(textBox44.Text.Trim());
+
+                mcarga8.fecha = dateTimePicker3.Value;
+
+                mcarga8.total = decimal.Parse(textBox45.Text.Trim());
+
+                mcarga8.metodo_pago = materialComboBox2.Text.Trim();
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Error de formato en los datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al capturar datos: " + ex.Message);
+            }
+        }
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -586,6 +708,15 @@ namespace Taller_de_Mantenimiento
             textBox40.Text = "";
             textBox41.Text = "";
             dateTimePicker2.Text = "";
+        }
+
+        private void LimpiarCampos8()
+        {
+            textBox46.Text = "";
+            textBox44.Text = "";
+            textBox45.Text = "";
+            dateTimePicker3.Text = "";
+            materialComboBox2.Text = "";
         }
 
         private bool datosCorrectos()
@@ -808,7 +939,35 @@ namespace Taller_de_Mantenimiento
             return true;
         }
 
+        private bool datosCorrectoVentas()
+        {
 
+            if (string.IsNullOrWhiteSpace(textBox44.Text))
+            {
+                MessageBox.Show("Ingrese el id del Cliente");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(dateTimePicker3.Text))
+            {
+                MessageBox.Show("Ingrese la fecha");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(materialComboBox2.Text))
+            {
+                MessageBox.Show("Ingrese el metodo de pago");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox45.Text))
+            {
+                MessageBox.Show("Ingrese el total");
+                return false;
+            }
+
+            return true;
+        }
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
@@ -1403,8 +1562,6 @@ namespace Taller_de_Mantenimiento
                  
                     return;
                 }
-
-                // Modificamos la consulta para obtener tanto el precio del servicio como el total de la orden
                 string query = @"
                                 SELECT 
                                     s.precio, 
@@ -1422,30 +1579,25 @@ namespace Taller_de_Mantenimiento
                 {
                     try
                     {
-                        // Agregamos los parámetros
                         cmd.Parameters.AddWithValue("@id_servicio", idServicio);
                         cmd.Parameters.AddWithValue("@id_orden", idOrden);
 
-                        // Ejecutamos la consulta y obtenemos el resultado
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                // Obtenemos el precio del servicio y el total de la orden
+                   
                                 decimal precioServicio = reader.IsDBNull(reader.GetOrdinal("precio")) ? 0.00m : reader.GetDecimal("precio");
                                 decimal totalOrden = reader.IsDBNull(reader.GetOrdinal("totalOrden")) ? 0.00m : reader.GetDecimal("totalOrden");
 
-                                // Asignamos el precio del servicio a textBox38
+                         
                                 textBox38.Text = precioServicio.ToString("0.00");
 
-                                // Puedes hacer lo que necesites con el total de la orden, por ejemplo:
-                                // totalTextBox.Text = totalOrden.ToString("0.00");
                             }
                             else
                             {
-                                // Si no se encuentran resultados, asignamos valores por defecto
-                                textBox38.Text = "0.00"; // Precio del servicio
-                                                         // totalTextBox.Text = "0.00"; // Total de la orden
+                                textBox38.Text = "0.00"; 
+                                                         
                             }
                         }
                     }
@@ -1669,7 +1821,133 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("No se pudo eliminar la factura");
             }
         }
+
+        private void grid8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (grid8.SelectedItems.Count > 0)
+            {
+
+                ListViewItem selectedItem = grid8.SelectedItems[0];
+
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int id_venta))
+                {
+                    textBox46.Text = id_venta.ToString();
+                    textBox44.Text = selectedItem.SubItems[1].Text;
+                    string fechaTexto = selectedItem.SubItems[2].Text;
+
+
+                    if (!string.IsNullOrEmpty(fechaTexto) && DateTime.TryParse(fechaTexto, out DateTime fecha))
+                    {
+
+                        if (fecha >= dateTimePicker3.MinDate && fecha <= dateTimePicker3.MaxDate)
+                        {
+                            dateTimePicker3.Value = fecha;
+                        }
+                        else
+                        {
+                            MessageBox.Show("La fecha está fuera del rango permitido.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fecha no es válida o está vacía.");
+                    }
+
+                    textBox45.Text = selectedItem.SubItems[3].Text;
+                    materialComboBox2.Text = selectedItem.SubItems[4].Text;
+                }
+            }
+        }
+
+        private void textBox43_TextChanged(object sender, EventArgs e)
+        {
+            cargarVentas(textBox43.Text.Trim());
+        }
+
+        private void materialButton25_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectoVentas())
+            {
+                return;
+            }
+
+            cargarVentas();
+            capturarDatosDelFormularioVentas();
+
+            if (mConsultaVenta.agregarVentas(mcarga8))
+            {
+
+                MessageBox.Show("Venta agregada");
+                cargarVentas();
+                LimpiarCampos8();
+            }
+        }
+
+        private void materialButton26_Click(object sender, EventArgs e)
+        {
+            capturarDatosDelFormularioParaEliminarVentas();
+
+            if (mConsultaVenta.eliminarVentas(mcarga8))
+            {
+                MessageBox.Show("Venta eliminada");
+                cargarVentas();
+                LimpiarCampos8();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar la factura");
+            }
+        }
+
+        private void grid9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (grid7.SelectedItems.Count > 0)
+            {
+
+                ListViewItem selectedItem = grid7.SelectedItems[0];
+
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int id_factura))
+                {
+                    textBox40.Text = id_factura.ToString();
+                    textBox42.Text = selectedItem.SubItems[1].Text;
+                    string fechaTexto = selectedItem.SubItems[2].Text;
+
+
+                    if (!string.IsNullOrEmpty(fechaTexto) && DateTime.TryParse(fechaTexto, out DateTime fecha))
+                    {
+
+                        if (fecha >= dateTimePicker2.MinDate && fecha <= dateTimePicker2.MaxDate)
+                        {
+                            dateTimePicker2.Value = fecha;
+                        }
+                        else
+                        {
+                            MessageBox.Show("La fecha está fuera del rango permitido.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fecha no es válida o está vacía.");
+                    }
+
+                    textBox41.Text = selectedItem.SubItems[3].Text;
+                }
+            }
+        }
+
+        private void textBox47_TextChanged(object sender, EventArgs e)
+        {
+           // textBox47
+        }
+
+        private void materialButton27_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
+
 
 }
 
