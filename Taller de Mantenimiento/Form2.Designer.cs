@@ -290,6 +290,19 @@ namespace Taller_de_Mantenimiento
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.grid11 = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeader53 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader54 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader55 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader56 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader57 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader58 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader59 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.materialLabel70 = new MaterialSkin.Controls.MaterialLabel();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
+            this.textBox62 = new System.Windows.Forms.TextBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.textBox57 = new System.Windows.Forms.TextBox();
             this.materialButton32 = new MaterialSkin.Controls.MaterialButton();
@@ -324,6 +337,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel61 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.columnHeader60 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -355,6 +369,9 @@ namespace Taller_de_Mantenimiento
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             this.tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
@@ -3462,12 +3479,133 @@ namespace Taller_de_Mantenimiento
             // 
             // tabPage11
             // 
+            this.tabPage11.BackColor = System.Drawing.Color.White;
+            this.tabPage11.Controls.Add(this.grid11);
+            this.tabPage11.Controls.Add(this.label12);
+            this.tabPage11.Controls.Add(this.pictureBox24);
+            this.tabPage11.Controls.Add(this.materialLabel70);
+            this.tabPage11.Controls.Add(this.pictureBox23);
+            this.tabPage11.Controls.Add(this.textBox62);
             this.tabPage11.Location = new System.Drawing.Point(4, 34);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Size = new System.Drawing.Size(1368, 545);
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "Historial";
-            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // grid11
+            // 
+            this.grid11.AutoSizeTable = false;
+            this.grid11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grid11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grid11.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader53,
+            this.columnHeader54,
+            this.columnHeader55,
+            this.columnHeader56,
+            this.columnHeader57,
+            this.columnHeader58,
+            this.columnHeader59,
+            this.columnHeader60});
+            this.grid11.Depth = 0;
+            this.grid11.FullRowSelect = true;
+            this.grid11.HideSelection = false;
+            this.grid11.Location = new System.Drawing.Point(91, 197);
+            this.grid11.MinimumSize = new System.Drawing.Size(200, 100);
+            this.grid11.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.grid11.MouseState = MaterialSkin.MouseState.OUT;
+            this.grid11.Name = "grid11";
+            this.grid11.OwnerDraw = true;
+            this.grid11.Size = new System.Drawing.Size(1197, 317);
+            this.grid11.TabIndex = 65;
+            this.grid11.UseCompatibleStateImageBehavior = false;
+            this.grid11.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader53
+            // 
+            this.columnHeader53.Text = "ID";
+            this.columnHeader53.Width = 59;
+            // 
+            // columnHeader54
+            // 
+            this.columnHeader54.Text = "Tabla Modificada";
+            this.columnHeader54.Width = 172;
+            // 
+            // columnHeader55
+            // 
+            this.columnHeader55.Text = "# De Registro";
+            this.columnHeader55.Width = 145;
+            // 
+            // columnHeader56
+            // 
+            this.columnHeader56.Text = "Tipo de Operacion";
+            this.columnHeader56.Width = 172;
+            // 
+            // columnHeader57
+            // 
+            this.columnHeader57.Text = "Usuario";
+            this.columnHeader57.Width = 124;
+            // 
+            // columnHeader58
+            // 
+            this.columnHeader58.Text = "Fecha";
+            this.columnHeader58.Width = 112;
+            // 
+            // columnHeader59
+            // 
+            this.columnHeader59.Text = "Valores Anteriores";
+            this.columnHeader59.Width = 197;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(127, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(322, 39);
+            this.label12.TabIndex = 58;
+            this.label12.Text = "Historial de Cambios";
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
+            this.pictureBox24.Location = new System.Drawing.Point(29, 24);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(92, 76);
+            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox24.TabIndex = 57;
+            this.pictureBox24.TabStop = false;
+            // 
+            // materialLabel70
+            // 
+            this.materialLabel70.AutoSize = true;
+            this.materialLabel70.Depth = 0;
+            this.materialLabel70.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.materialLabel70.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel70.Location = new System.Drawing.Point(510, 131);
+            this.materialLabel70.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel70.Name = "materialLabel70";
+            this.materialLabel70.Size = new System.Drawing.Size(76, 19);
+            this.materialLabel70.TabIndex = 19;
+            this.materialLabel70.Text = "Busqueda:";
+            // 
+            // pictureBox23
+            // 
+            this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
+            this.pictureBox23.Location = new System.Drawing.Point(449, 124);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(55, 38);
+            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox23.TabIndex = 18;
+            this.pictureBox23.TabStop = false;
+            // 
+            // textBox62
+            // 
+            this.textBox62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
+            this.textBox62.Location = new System.Drawing.Point(592, 130);
+            this.textBox62.Name = "textBox62";
+            this.textBox62.Size = new System.Drawing.Size(305, 20);
+            this.textBox62.TabIndex = 17;
+            this.textBox62.TextChanged += new System.EventHandler(this.textBox62_TextChanged);
             // 
             // tabPage12
             // 
@@ -3870,6 +4008,11 @@ namespace Taller_de_Mantenimiento
             this.label11.TabIndex = 58;
             this.label11.Text = "Gestion de Usuarios";
             // 
+            // columnHeader60
+            // 
+            this.columnHeader60.Text = "Valores Nuevos";
+            this.columnHeader60.Width = 213;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3922,6 +4065,10 @@ namespace Taller_de_Mantenimiento
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
@@ -4217,5 +4364,19 @@ namespace Taller_de_Mantenimiento
         private MaterialButton materialButton32;
         private ColumnHeader columnHeader52;
         private TextBox textBox57;
+        private Label label12;
+        private PictureBox pictureBox24;
+        private MaterialLabel materialLabel70;
+        private PictureBox pictureBox23;
+        private TextBox textBox62;
+        private MaterialListView grid11;
+        private ColumnHeader columnHeader53;
+        internal ColumnHeader columnHeader54;
+        private ColumnHeader columnHeader55;
+        private ColumnHeader columnHeader56;
+        private ColumnHeader columnHeader57;
+        private ColumnHeader columnHeader58;
+        private ColumnHeader columnHeader59;
+        private ColumnHeader columnHeader60;
     }
 }

@@ -93,6 +93,7 @@
     <Compile Include="ConsultaDetalle.cs" />
     <Compile Include="ConsultaDetalleVentas.cs" />
     <Compile Include="ConsultaFactura.cs" />
+    <Compile Include="ConsultaHistorial.cs" />
     <Compile Include="ConsultaInventario.cs" />
     <Compile Include="ConsultaOrden.cs" />
     <Compile Include="ConsultaPiezas.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Historial.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="Orden.cs" />
     <Compile Include="Piezas.cs" />

@@ -68,6 +68,10 @@ namespace Taller_de_Mantenimiento
         private DetalleVentas mcarga9;
         private ConsultaDetalleVentas mConsultaDetalleVentas;
 
+        private List<Historial> mHistorial;
+        private Historial mcarga11;
+        private ConsultaHistorial mConsultaHistorial;
+
         private List<Usuarios> mUsuarios;
         private Usuarios mcarga10;
         private ConsultaUsuario mConsultaUsuario;
@@ -143,6 +147,11 @@ namespace Taller_de_Mantenimiento
             mcarga9 = new DetalleVentas();
             cargarDetalleVentas();
             textBox48.ReadOnly = true;
+
+            mHistorial = new List<Historial>();
+            mConsultaHistorial = new ConsultaHistorial();
+            mcarga11 = new Historial();
+            cargarHistorial();
 
             mUsuarios = new List<Usuarios>();
             mConsultaUsuario = new ConsultaUsuario();
@@ -408,27 +417,27 @@ namespace Taller_de_Mantenimiento
 
         private void cargarUsuario(string filtro = "")
         {
-            grid10.Items.Clear(); // Limpia el ListView
-            grid10.Refresh(); // (Opcional, puede eliminarse)
-            mUsuarios.Clear(); // Limpia la lista local
+            grid10.Items.Clear(); 
+            grid10.Refresh(); 
+            mUsuarios.Clear(); 
 
-            // Obtén los usuarios filtrados
+         
             mUsuarios = mConsultaUsuario.getUsuarios(filtro);
 
-            // Valida si la lista está vacía o nula
+           
             if (mUsuarios == null || mUsuarios.Count == 0)
             {
                 MessageBox.Show("No se encontraron usuarios con el filtro especificado.",
                                 "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return; // Salir del método si no hay datos
+                return; 
             }
 
-            // Iterar sobre la lista de usuarios
+         
             for (int i = 0; i < mUsuarios.Count; i++)
             {
                 ListViewItem item = new ListViewItem(mUsuarios[i].id_usuario.ToString());
 
-                item.SubItems.Add(mUsuarios[i].nombre_usuario ?? ""); // Manejo de valores nulos
+                item.SubItems.Add(mUsuarios[i].nombre_usuario ?? ""); 
                 item.SubItems.Add(mUsuarios[i].contrasena ?? "");
                 item.SubItems.Add(mUsuarios[i].nombre ?? "");
                 item.SubItems.Add(mUsuarios[i].apellido ?? "");
@@ -436,10 +445,36 @@ namespace Taller_de_Mantenimiento
                 item.SubItems.Add(mUsuarios[i].numero_tel ?? "");
                 item.SubItems.Add(mUsuarios[i].rol ?? "");
 
-                grid10.Items.Add(item); // Agrega el item al ListView
+                grid10.Items.Add(item);
             }
         }
 
+        private void cargarHistorial(string filtro = "")
+        {
+            grid11.Items.Clear();
+            grid11.Refresh();
+            mHistorial.Clear();
+
+            mHistorial = mConsultaHistorial.getHistorial(filtro);
+
+
+            for (int i = 0; i < mHistorial.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(mHistorial[i].id_historial.ToString());
+
+                item.SubItems.Add(mHistorial[i].tabla_modificada);
+                item.SubItems.Add(mHistorial[i].id_registro.ToString());
+                item.SubItems.Add(mHistorial[i].tipo_operacion);
+                item.SubItems.Add(mHistorial[i].usuario);
+                item.SubItems.Add(mHistorial[i].fecha.ToString("yyyy-MM-dd"));
+                item.SubItems.Add(mHistorial[i].valores_anteriores);
+                item.SubItems.Add(mHistorial[i].valores_nuevos);
+
+                grid11.Items.Add(item);
+            }
+
+        }
 
         //------------------------------------
         private void capturarDatosDelFormulario()
@@ -1197,8 +1232,6 @@ namespace Taller_de_Mantenimiento
 
         }
 
-
-
         private void materialButton2_Click(object sender, EventArgs e)
         {
             if (!datosCorrectos())
@@ -1320,7 +1353,6 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("No se pudo modificar el vehículo.");
             }
         }
-    
 
         private void grid1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -1414,8 +1446,6 @@ namespace Taller_de_Mantenimiento
             mcarga2.descripcion_pieza = textBox17.Text.Trim();
             mcarga2.precio = Convert.ToInt32(textBox18.Text.Trim());
             mcarga2.cantidad_disponible = Convert.ToInt32(textBox20.Text.Trim());
-            
-
 
             if (mConsultaPiezas.modificarPiezas(mcarga2))
             {
@@ -1465,7 +1495,6 @@ namespace Taller_de_Mantenimiento
                 }
             }
         }
-
         private void textBox21_TextChanged(object sender, EventArgs e)
         {
             cargarInventario(textBox21.Text.Trim());
@@ -1489,7 +1518,6 @@ namespace Taller_de_Mantenimiento
                 LimpiarCampos3();
             }
         }
-
         private void materialButton11_Click(object sender, EventArgs e)
         {
             if (!datosCorrectosInventario())
@@ -1514,7 +1542,6 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("No se pudo modificar el inventario.");
             }
         }
-
         private void materialButton12_Click(object sender, EventArgs e)
         {
 
@@ -1535,7 +1562,6 @@ namespace Taller_de_Mantenimiento
             }
 
         }
-
         private void grid4_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (grid4.SelectedItems.Count > 0)
@@ -1552,12 +1578,10 @@ namespace Taller_de_Mantenimiento
                 }
             }
         }
-
         private void textBox27_TextChanged(object sender, EventArgs e)
         {
             cargarServicio(textBox27.Text.Trim());
         }
-
         private void materialButton13_Click(object sender, EventArgs e)
         {
             if (!datosCorrectosServicio())
@@ -1576,7 +1600,6 @@ namespace Taller_de_Mantenimiento
                 LimpiarCampos4();
             }
         }
-
         private void materialButton14_Click(object sender, EventArgs e)
         {
             if (!datosCorrectosServicio())
@@ -1600,7 +1623,6 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("No se pudo modificar el servicio.");
             }
         }
-
         private void materialButton15_Click(object sender, EventArgs e)
         {
 
@@ -2364,6 +2386,11 @@ namespace Taller_de_Mantenimiento
                     MessageBox.Show("No se pudo eliminar el Usuario");
                 }
             }
+        }
+
+        private void textBox62_TextChanged(object sender, EventArgs e)
+        {
+            cargarHistorial(textBox62.Text.Trim());
         }
     }
 
