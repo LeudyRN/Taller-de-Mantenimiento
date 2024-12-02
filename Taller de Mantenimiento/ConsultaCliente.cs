@@ -69,8 +69,6 @@ namespace Taller_de_Mantenimiento
             return mclientes;
         }
 
-
-
         internal bool agregarCliente(Clientes mclientes)
         {
  
@@ -134,7 +132,6 @@ namespace Taller_de_Mantenimiento
             }
         }
 
-
         internal bool eliminarClientes(Clientes mclientes)
         {
             string DELETE = "DELETE FROM clientes WHERE id_cliente = @id_cliente";
@@ -158,7 +155,6 @@ namespace Taller_de_Mantenimiento
                 return false;
             }
         }
-
 
         internal bool modificarCliente(Clientes mclientes)
         {

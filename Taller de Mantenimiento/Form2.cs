@@ -68,6 +68,10 @@ namespace Taller_de_Mantenimiento
         private DetalleVentas mcarga9;
         private ConsultaDetalleVentas mConsultaDetalleVentas;
 
+        private List<Usuarios> mUsuarios;
+        private Usuarios mcarga10;
+        private ConsultaUsuario mConsultaUsuario;
+
         public Form2()
         {
 
@@ -77,7 +81,8 @@ namespace Taller_de_Mantenimiento
 
            
             CargarServicios();
-  
+            CargarServicios1();
+
             mClientes = new List<Clientes>();
             mConsultaCliente = new ConsultaCliente();
             mcarga = new Clientes();
@@ -139,6 +144,11 @@ namespace Taller_de_Mantenimiento
             cargarDetalleVentas();
             textBox48.ReadOnly = true;
 
+            mUsuarios = new List<Usuarios>();
+            mConsultaUsuario = new ConsultaUsuario();
+            mcarga10 = new Usuarios();
+            cargarUsuario();
+            textBox55.ReadOnly = true;
         }
 
         private void cargarClientes(string filtro = "")
@@ -386,7 +396,7 @@ namespace Taller_de_Mantenimiento
 
                 item.SubItems.Add(mDetalleVentas[i].id_venta.ToString());
                 item.SubItems.Add(mDetalleVentas[i].id_pieza.ToString());
-                item.SubItems.Add(mDetalleVentas[i].id_servicio.ToString());
+                item.SubItems.Add(mDetalle[i].descripcion_servicio);
                 item.SubItems.Add(mDetalleVentas[i].cantidad.ToString());
                 item.SubItems.Add(mDetalleVentas[i].precio_unitario.ToString());
                 item.SubItems.Add(mDetalleVentas[i].subtotal.ToString());
@@ -394,6 +404,40 @@ namespace Taller_de_Mantenimiento
                 grid9.Items.Add(item);
             }
 
+        }
+
+        private void cargarUsuario(string filtro = "")
+        {
+            grid10.Items.Clear(); // Limpia el ListView
+            grid10.Refresh(); // (Opcional, puede eliminarse)
+            mUsuarios.Clear(); // Limpia la lista local
+
+            // Obtén los usuarios filtrados
+            mUsuarios = mConsultaUsuario.getUsuarios(filtro);
+
+            // Valida si la lista está vacía o nula
+            if (mUsuarios == null || mUsuarios.Count == 0)
+            {
+                MessageBox.Show("No se encontraron usuarios con el filtro especificado.",
+                                "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Salir del método si no hay datos
+            }
+
+            // Iterar sobre la lista de usuarios
+            for (int i = 0; i < mUsuarios.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(mUsuarios[i].id_usuario.ToString());
+
+                item.SubItems.Add(mUsuarios[i].nombre_usuario ?? ""); // Manejo de valores nulos
+                item.SubItems.Add(mUsuarios[i].contrasena ?? "");
+                item.SubItems.Add(mUsuarios[i].nombre ?? "");
+                item.SubItems.Add(mUsuarios[i].apellido ?? "");
+                item.SubItems.Add(mUsuarios[i].Correo ?? "");
+                item.SubItems.Add(mUsuarios[i].numero_tel ?? "");
+                item.SubItems.Add(mUsuarios[i].rol ?? "");
+
+                grid10.Items.Add(item); // Agrega el item al ListView
+            }
         }
 
 
@@ -515,6 +559,51 @@ namespace Taller_de_Mantenimiento
             }
         }
 
+        private void capturarDatosDelFormularioDetallesVentas()
+        {
+            try
+            {
+                mcarga9.id_venta = int.Parse(textBox49.Text.Trim());
+
+                mcarga9.id_pieza = int.Parse(textBox50.Text.Trim());
+
+                if (materialComboBox3.SelectedItem is KeyValuePair<int, string> selectedService)
+                {
+                    mcarga9.id_servicio = selectedService.Key;
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona un servicio.");
+                    return;
+                }
+
+                mcarga9.cantidad = int.Parse(textBox52.Text.Trim());
+
+                mcarga9.precio_unitario = decimal.Parse(textBox53.Text.Trim());
+
+                mcarga9.subtotal = decimal.Parse(textBox54.Text.Trim());
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Error de formato en los datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al capturar datos: " + ex.Message);
+            }
+        }
+
+        private void capturarDatosDelFormularioUsuario()
+        {
+            mcarga10.nombre_usuario = textBox56.Text.Trim();
+            mcarga10.contrasena = textBox57.Text.Trim();
+            mcarga10.nombre = textBox58.Text.Trim();
+            mcarga10.apellido = textBox59.Text.Trim();
+            mcarga10.Correo = textBox60.Text.Trim();
+            mcarga10.numero_tel = textBox61.Text.Trim();
+            mcarga10.rol = materialComboBox4.Text.Trim();
+        }
 
         //------------------------------------
         private void capturarDatosDelFormularioParaEliminar()
@@ -628,6 +717,55 @@ namespace Taller_de_Mantenimiento
             }
         }
 
+        private void capturarDatosDelFormularioDetallesVentasParaEliminar()
+        {
+            try
+            {
+                mcarga9.id_detalle_venta = int.Parse(textBox48.Text.Trim());
+
+                mcarga9.id_venta = int.Parse(textBox49.Text.Trim());
+
+                mcarga9.id_pieza = int.Parse(textBox50.Text.Trim());
+
+                if (materialComboBox3.SelectedItem is KeyValuePair<int, string> selectedService)
+                {
+                    mcarga9.id_servicio = selectedService.Key;
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona un servicio.");
+                    return;
+                }
+
+                mcarga9.cantidad = int.Parse(textBox52.Text.Trim());
+
+                mcarga9.precio_unitario = decimal.Parse(textBox53.Text.Trim());
+
+                mcarga9.subtotal = decimal.Parse(textBox54.Text.Trim());
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Error de formato en los datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al capturar datos: " + ex.Message);
+            }
+        }
+
+        private void capturarDatosDelFormularioParaEliminarUsuario()
+        {
+            mcarga10.id_usuario = int.Parse(textBox55.Text.Trim());
+            mcarga10.nombre_usuario = textBox56.Text.Trim();
+            mcarga10.contrasena = textBox57.Text.Trim();
+            mcarga10.nombre = textBox58.Text.Trim();
+            mcarga10.apellido = textBox59.Text.Trim();
+            mcarga10.Correo = textBox60.Text.Trim();
+            mcarga10.numero_tel = textBox61.Text.Trim();
+            mcarga10.rol = materialComboBox4.Text.Trim();
+        }
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -717,6 +855,29 @@ namespace Taller_de_Mantenimiento
             textBox45.Text = "";
             dateTimePicker3.Text = "";
             materialComboBox2.Text = "";
+        }
+
+        private void LimpiarCampos9()
+        {
+
+            textBox48.Text = "";
+            textBox49.Text = "";
+            textBox50.Text = "";
+            materialComboBox3.Text = "";
+            textBox52.Text = "";
+            textBox53.Text = "";
+            textBox54.Text = "";
+        }
+        private void LimpiarCampos10()
+        {
+            textBox55.Text = "";
+            textBox56.Text = "";
+            textBox57.Text = "";
+            textBox58.Text = "";
+            textBox59.Text = "";
+            textBox60.Text = "";
+            textBox61.Text = "";
+            materialComboBox4.Text = "";
         }
 
         private bool datosCorrectos()
@@ -968,6 +1129,51 @@ namespace Taller_de_Mantenimiento
 
             return true;
         }
+
+        private bool datosCorrectoDetalleVentas()
+        {
+
+            if (string.IsNullOrWhiteSpace(textBox49.Text))
+            {
+                MessageBox.Show("Ingrese el id del Cliente");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox50.Text))
+            {
+                MessageBox.Show("Ingrese el id de la pieza");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(materialComboBox3.Text))
+            {
+                MessageBox.Show("Ingrese el servicio");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox52.Text))
+            {
+                MessageBox.Show("Ingrese la cantidad");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox53.Text))
+            {
+                MessageBox.Show("Ingrese el precio unitario");
+                return false;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(textBox54.Text))
+            {
+                MessageBox.Show("Ingrese el total");
+                return false;
+            }
+
+
+            return true;
+        }
+
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
@@ -1554,10 +1760,9 @@ namespace Taller_de_Mantenimiento
             if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
             {
                 int idServicio = selectedService.Key;
-
-              
                 int idOrden;
-                if (!int.TryParse(textBox34.Text, out idOrden))  
+
+                if (!int.TryParse(textBox36.Text, out idOrden))  
                 {
                  
                     return;
@@ -1902,52 +2107,265 @@ namespace Taller_de_Mantenimiento
 
         private void grid9_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (grid7.SelectedItems.Count > 0)
+            if (grid9.SelectedItems.Count > 0)
             {
 
-                ListViewItem selectedItem = grid7.SelectedItems[0];
+                ListViewItem selectedItem = grid9.SelectedItems[0];
 
 
-                if (int.TryParse(selectedItem.SubItems[0].Text, out int id_factura))
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int id_detalle_venta))
                 {
-                    textBox40.Text = id_factura.ToString();
-                    textBox42.Text = selectedItem.SubItems[1].Text;
-                    string fechaTexto = selectedItem.SubItems[2].Text;
-
-
-                    if (!string.IsNullOrEmpty(fechaTexto) && DateTime.TryParse(fechaTexto, out DateTime fecha))
-                    {
-
-                        if (fecha >= dateTimePicker2.MinDate && fecha <= dateTimePicker2.MaxDate)
-                        {
-                            dateTimePicker2.Value = fecha;
-                        }
-                        else
-                        {
-                            MessageBox.Show("La fecha está fuera del rango permitido.");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("La fecha no es válida o está vacía.");
-                    }
-
-                    textBox41.Text = selectedItem.SubItems[3].Text;
+                    textBox48.Text = id_detalle_venta.ToString();
+                    textBox49.Text = selectedItem.SubItems[1].Text;
+                    textBox50.Text = selectedItem.SubItems[2].Text;
+                    materialComboBox3.Text = selectedItem.SubItems[3].Text;
+                    textBox52.Text = selectedItem.SubItems[4].Text;
+                    textBox53.Text = selectedItem.SubItems[5].Text;
+                    textBox54.Text = selectedItem.SubItems[6].Text;
                 }
             }
         }
 
         private void textBox47_TextChanged(object sender, EventArgs e)
         {
-           // textBox47
+            cargarDetalleVentas(textBox47.Text.Trim());
         }
 
         private void materialButton27_Click(object sender, EventArgs e)
         {
-            
+            if (!datosCorrectoDetalleVentas())
+            {
+                return;
+            }
+
+            cargarDetalleVentas();
+            capturarDatosDelFormularioDetallesVentas();
+
+            if (mConsultaDetalleVentas.agregarDetalleVentas(mcarga9))
+            {
+
+                MessageBox.Show("Detalle de venta agregada");
+                cargarDetalleVentas();
+                LimpiarCampos9();
+            }
+        }
+
+        private void CargarServicios1()
+        {
+            string query = "SELECT id_servicio, descripcion FROM servicios";
+            using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
+            {
+                try
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        materialComboBox3.Items.Clear();
+
+                        while (reader.Read())
+                        {
+                            int idServicio = reader.GetInt32("id_servicio");
+                            string descripcion = reader.GetString("descripcion");
+
+                            materialComboBox3.Items.Add(new KeyValuePair<int, string>(idServicio, descripcion));
+                        }
+                    }
+
+                    materialComboBox3.DisplayMember = "Value";
+                    materialComboBox3.ValueMember = "Key";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar servicios: " + ex.Message);
+                }
+            }
+        }
+
+        private void materialComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (materialComboBox3.SelectedItem is KeyValuePair<int, string> selectedService)
+            {
+                int idServicio = selectedService.Key;
+
+                if (!int.TryParse(textBox49.Text, out int idVenta))
+                {
+                    MessageBox.Show("ID de venta no válido.");
+                    return;
+                }
+
+                string query = @"
+            SELECT 
+                dv.precio_unitario, 
+                dv.cantidad, 
+                dv.subtotal
+            FROM 
+                detalles_ventas dv
+            WHERE 
+                dv.id_servicio = @id_servicio AND dv.id_venta = @id_venta";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
+                {
+                    try
+                    {
+                        cmd.Parameters.AddWithValue("@id_servicio", idServicio);
+                        cmd.Parameters.AddWithValue("@id_venta", idVenta);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                decimal precioUnitario = reader.IsDBNull(reader.GetOrdinal("precio_unitario")) ? 0.00m : reader.GetDecimal("precio_unitario");
+                                int cantidad = reader.IsDBNull(reader.GetOrdinal("cantidad")) ? 0 : reader.GetInt32("cantidad");
+                                decimal subtotal = reader.IsDBNull(reader.GetOrdinal("subtotal")) ? 0.00m : reader.GetDecimal("subtotal");
+
+                                textBox52.Text = precioUnitario.ToString("0.00");
+                                textBox53.Text = cantidad.ToString();
+                                textBox54.Text = subtotal.ToString("0.00");
+                            }
+                            else
+                            {
+                                textBox52.Text = "0";
+                                textBox53.Text = "0";
+                                textBox54.Text = "0";
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al obtener los datos: " + ex.Message);
+                    }
+                }
+            }
+
+        }
+        private void materialButton28_Click(object sender, EventArgs e)
+        {
+            if (!datosCorrectoDetalleVentas())
+            {
+                return;
+            }
+
+            mcarga9.id_detalle_venta = Convert.ToInt32(textBox48.Text.Trim());
+            mcarga9.id_venta = Convert.ToInt32(textBox49.Text.Trim());
+            mcarga9.id_pieza = Convert.ToInt32(textBox50.Text.Trim());
+
+            string nombreServicio = materialComboBox3.Text.Trim();
+
+            if (mConsultaDetalleVentas.modificarDetalleVentas(mcarga9, nombreServicio))
+            {
+                MessageBox.Show("Detalle modificado correctamente.");
+                cargarDetalleVentas();
+                capturarDatosDelFormularioDetallesVentas();
+                LimpiarCampos9();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar la orden.");
+            }
+        }
+
+        private void materialButton29_Click(object sender, EventArgs e)
+        {
+            capturarDatosDelFormularioDetallesVentasParaEliminar();
+
+            if (mConsultaDetalleVentas.EliminarVentaDetallada(mcarga9))
+            {
+                MessageBox.Show("Detalle eliminado");
+                cargarDetalleVentas();
+                LimpiarCampos9();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar el detalle");
+            }
+        }
+
+        private void grid10_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (grid10.SelectedItems.Count > 0)
+            {
+
+                ListViewItem selectedItem = grid10.SelectedItems[0];
+
+
+                if (int.TryParse(selectedItem.SubItems[0].Text, out int id_usuario))
+                {
+                    textBox55.Text = id_usuario.ToString();
+                    textBox56.Text = selectedItem.SubItems[1].Text;
+                    textBox57.Text = selectedItem.SubItems[2].Text;
+                    textBox58.Text = selectedItem.SubItems[3].Text;
+                    textBox59.Text = selectedItem.SubItems[4].Text;
+                    textBox60.Text = selectedItem.SubItems[5].Text;
+                    textBox61.Text = selectedItem.SubItems[6].Text;
+                    materialComboBox4.Text = selectedItem.SubItems[7].Text;
+                }
+            }
+        }
+
+        private void textBox51_TextChanged(object sender, EventArgs e)
+        {
+            cargarUsuario(textBox51.Text.Trim());
+        }
+
+        private void materialButton30_Click(object sender, EventArgs e)
+        {
+ 
+            cargarUsuario();
+            capturarDatosDelFormularioUsuario();
+
+            if (mConsultaUsuario.agregarUsuarios(mcarga10))
+            {
+
+                MessageBox.Show("Usuario agregado");
+                cargarUsuario();
+                LimpiarCampos10();
+            }
+        }
+
+        private void materialButton31_Click(object sender, EventArgs e)
+        {
+
+            mcarga10.id_usuario = Convert.ToInt32(textBox55.Text.Trim());
+            mcarga10.nombre_usuario = textBox56.Text.Trim();
+            mcarga10.contrasena = textBox57.Text.Trim();
+            mcarga10.nombre = textBox58.Text.Trim();
+            mcarga10.apellido = textBox59.Text.Trim();
+            mcarga10.Correo = textBox60.Text.Trim();
+            mcarga10.numero_tel = textBox61.Text.Trim();
+            mcarga10.rol = materialComboBox4.Text.Trim();
+
+
+            if (mConsultaUsuario.modificarUsuarios(mcarga10))
+            {
+                MessageBox.Show("Usuario modificado");
+                cargarUsuario();
+                capturarDatosDelFormularioUsuario();
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el cliente.");
+            }
+        }
+
+        private void materialButton32_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea eliminar este Usuario?", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                capturarDatosDelFormularioParaEliminarUsuario();
+
+                if (mConsultaUsuario.eliminarUsuarios(mcarga10))
+                {
+                    MessageBox.Show("Usuario eliminado");
+                    cargarUsuario();
+                    LimpiarCampos10();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el Usuario");
+                }
+            }
         }
     }
-
 
 }
 

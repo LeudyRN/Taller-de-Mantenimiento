@@ -75,7 +75,7 @@ namespace Taller_de_Mantenimiento
             {
                 using (MySqlCommand mCommand = new MySqlCommand(insert, conexionMysql.GetConnection()))
                 {
-                    mCommand.Parameters.Add(new MySqlParameter("@id_detalle_venta", mDetalleVentas.id_detalle_venta)); 
+                   // mCommand.Parameters.Add(new MySqlParameter("@id_detalle_venta", mDetalleVentas.id_detalle_venta)); 
                     mCommand.Parameters.Add(new MySqlParameter("@id_venta", mDetalleVentas.id_venta));
                     mCommand.Parameters.Add(new MySqlParameter("@id_pieza", mDetalleVentas.id_pieza));
                     mCommand.Parameters.Add(new MySqlParameter("@id_servicio", mDetalleVentas.id_servicio));
@@ -97,11 +97,44 @@ namespace Taller_de_Mantenimiento
                 return false;
             }
         }
-
-        internal bool modificarDetalleVentas(DetalleVentas mDetalleVentas)
+        private int ObtenerIdServicioPorNombre(string descripcion)
         {
+            int idServicio = -1;
+
+            string query = "SELECT id_servicio FROM servicios WHERE descripcion = @descripcion;";
+            try
+            {
+                using (MySqlCommand command = new MySqlCommand(query, conexionMysql.GetConnection()))
+                {
+                    command.Parameters.AddWithValue("@descripcion", descripcion);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            idServicio = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error al obtener el ID del servicio: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return idServicio;
+        }
+
+        internal bool modificarDetalleVentas(DetalleVentas mDetalleVentas, string descripcion)
+        {
+
+            int idServicio = ObtenerIdServicioPorNombre(descripcion);
+            if (idServicio == -1)
+            {
+                MessageBox.Show("El nombre del servicio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             string update = "UPDATE detalles_ventas SET id_venta = @id_venta, id_pieza = @id_pieza, " +
-                            "id_servicio = @id_servicio, cantidad = @cantidad " +
+                            "id_servicio = @id_servicio, cantidad = @cantidad, " +
                             "precio_unitario = @precio_unitario, subtotal = @subtotal " +
                             "WHERE id_detalle_venta = @id_detalle_venta;";
 
@@ -109,10 +142,10 @@ namespace Taller_de_Mantenimiento
             {
                 using (MySqlCommand mCommand = new MySqlCommand(update, conexionMysql.GetConnection()))
                 {
-
+                    mCommand.Parameters.AddWithValue("@id_detalle_venta", mDetalleVentas.id_detalle_venta);
                     mCommand.Parameters.AddWithValue("@id_venta", mDetalleVentas.id_venta);
                     mCommand.Parameters.AddWithValue("@id_pieza", mDetalleVentas.id_pieza);
-                    mCommand.Parameters.AddWithValue("@id_servicio", mDetalleVentas.id_servicio);
+                    mCommand.Parameters.AddWithValue("@id_servicio", idServicio);
                     mCommand.Parameters.AddWithValue("@cantidad", mDetalleVentas.cantidad);
                     mCommand.Parameters.AddWithValue("@precio_unitario", mDetalleVentas.precio_unitario);
                     mCommand.Parameters.AddWithValue("@subtotal", mDetalleVentas.subtotal);

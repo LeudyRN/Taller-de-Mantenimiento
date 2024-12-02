@@ -97,6 +97,7 @@
     <Compile Include="ConsultaOrden.cs" />
     <Compile Include="ConsultaPiezas.cs" />
     <Compile Include="ConsultaServicio.cs" />
+    <Compile Include="ConsultaUsuario.cs" />
     <Compile Include="ConsultaVehiculo.cs" />
     <Compile Include="ConsultaVenta.cs" />
     <Compile Include="Detalle.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios.cs" />
+    <Compile Include="Usuarios.cs" />
     <Compile Include="Vehiculo.cs" />
     <Compile Include="Ventas.cs" />
     <EmbeddedResource Include="Form1.resx">
