@@ -632,7 +632,7 @@ namespace Taller_de_Mantenimiento
         private void capturarDatosDelFormularioUsuario()
         {
             mcarga10.nombre_usuario = textBox56.Text.Trim();
-            mcarga10.contrasena = textBox57.Text.Trim();
+            mcarga10.contrasena = BCrypt.Net.BCrypt.HashPassword(textBox57.Text.Trim());
             mcarga10.nombre = textBox58.Text.Trim();
             mcarga10.apellido = textBox59.Text.Trim();
             mcarga10.Correo = textBox60.Text.Trim();
@@ -793,7 +793,7 @@ namespace Taller_de_Mantenimiento
         {
             mcarga10.id_usuario = int.Parse(textBox55.Text.Trim());
             mcarga10.nombre_usuario = textBox56.Text.Trim();
-            mcarga10.contrasena = textBox57.Text.Trim();
+            mcarga10.contrasena = BCrypt.Net.BCrypt.HashPassword(textBox57.Text.Trim());
             mcarga10.nombre = textBox58.Text.Trim();
             mcarga10.apellido = textBox59.Text.Trim();
             mcarga10.Correo = textBox60.Text.Trim();
@@ -1597,6 +1597,8 @@ namespace Taller_de_Mantenimiento
 
                 MessageBox.Show("Servicio agregado");
                 cargarServicio();
+                CargarServicios();
+                CargarServicios1();
                 LimpiarCampos4();
             }
         }
@@ -1615,6 +1617,8 @@ namespace Taller_de_Mantenimiento
             {
                 MessageBox.Show("Servicio modificado");
                 cargarServicio();
+                CargarServicios();
+                CargarServicios1();
                 capturarDatosDelFormularioServicio();
                 LimpiarCampos4();
             }
@@ -1634,6 +1638,8 @@ namespace Taller_de_Mantenimiento
                 {
                     MessageBox.Show("Servicio eliminado");
                     cargarServicio();
+                    CargarServicios();
+                    CargarServicios1();
                     LimpiarCampos4();
                 }
                 else
@@ -1784,9 +1790,9 @@ namespace Taller_de_Mantenimiento
                 int idServicio = selectedService.Key;
                 int idOrden;
 
-                if (!int.TryParse(textBox36.Text, out idOrden))  
+                if (!int.TryParse(textBox36.Text, out idOrden))
                 {
-                 
+
                     return;
                 }
                 string query = @"
@@ -1813,18 +1819,18 @@ namespace Taller_de_Mantenimiento
                         {
                             if (reader.Read())
                             {
-                   
+
                                 decimal precioServicio = reader.IsDBNull(reader.GetOrdinal("precio")) ? 0.00m : reader.GetDecimal("precio");
                                 decimal totalOrden = reader.IsDBNull(reader.GetOrdinal("totalOrden")) ? 0.00m : reader.GetDecimal("totalOrden");
 
-                         
-                                textBox38.Text = precioServicio.ToString("0.00");
+
+                               // textBox38.Text = precioServicio.ToString("0.00");
 
                             }
                             else
                             {
-                                textBox38.Text = "0.00"; 
-                                                         
+                               // textBox38.Text = "0.00";
+
                             }
                         }
                     }
@@ -1836,37 +1842,37 @@ namespace Taller_de_Mantenimiento
             }
         }
 
-    /*    private void comboBoxServicios_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
+        /*    private void comboBoxServicios_SelectedIndexChanged_1(object sender, EventArgs e)
             {
-                int idServicio = selectedService.Key;
-
-                string query = "SELECT precio FROM servicios WHERE id_servicio = @id_servicio";
-                using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
+                if (comboBoxServicios.SelectedItem is KeyValuePair<int, string> selectedService)
                 {
-                    try
+                    int idServicio = selectedService.Key;
+
+                    string query = "SELECT precio FROM servicios WHERE id_servicio = @id_servicio";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conexionMysql.GetConnection()))
                     {
-                        cmd.Parameters.AddWithValue("@id_servicio", idServicio);
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
+                        try
                         {
-                            decimal precio = Convert.ToDecimal(result);
-                            textBox38.Text = precio.ToString("0.00");
+                            cmd.Parameters.AddWithValue("@id_servicio", idServicio);
+                            object result = cmd.ExecuteScalar();
+                            if (result != null)
+                            {
+                                decimal precio = Convert.ToDecimal(result);
+                                textBox38.Text = precio.ToString("0.00");
+                            }
+                            else
+                            {
+                                textBox38.Text = "0.00";  
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            textBox38.Text = "0.00";  
+                            MessageBox.Show("Error al obtener precio: " + ex.Message);
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al obtener precio: " + ex.Message);
                     }
                 }
             }
-        }
-        */
+            */
 
         private void grid6_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -1901,6 +1907,9 @@ namespace Taller_de_Mantenimiento
 
             cargarDetalle();
             capturarDatosDelFormularioDetalle();
+            CargarServicios();
+            CargarServicios1();
+        
 
             if (mConsultaDetalle.agregarDetalle(mcarga6))
             {
@@ -1929,6 +1938,8 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("Detalle modificado correctamente.");
                 cargarDetalle();
                 capturarDatosDelFormularioDetalle();
+                CargarServicios();
+                CargarServicios1();
                 LimpiarCampos6();
             }
             else
@@ -1945,6 +1956,8 @@ namespace Taller_de_Mantenimiento
             {
                 MessageBox.Show("Detalle eliminado");
                 cargarDetalle();
+                CargarServicios();
+                CargarServicios1();
                 LimpiarCampos6();
             }
             else
@@ -2168,6 +2181,8 @@ namespace Taller_de_Mantenimiento
 
                 MessageBox.Show("Detalle de venta agregada");
                 cargarDetalleVentas();
+                CargarServicios();
+                CargarServicios1();
                 LimpiarCampos9();
             }
         }
@@ -2239,9 +2254,9 @@ namespace Taller_de_Mantenimiento
                                 int cantidad = reader.IsDBNull(reader.GetOrdinal("cantidad")) ? 0 : reader.GetInt32("cantidad");
                                 decimal subtotal = reader.IsDBNull(reader.GetOrdinal("subtotal")) ? 0.00m : reader.GetDecimal("subtotal");
 
-                                textBox52.Text = precioUnitario.ToString("0.00");
-                                textBox53.Text = cantidad.ToString();
-                                textBox54.Text = subtotal.ToString("0.00");
+                               // textBox52.Text = precioUnitario.ToString("0.00");
+                                //textBox53.Text = cantidad.ToString();
+                                //textBox54.Text = subtotal.ToString("0.00");
                             }
                             else
                             {
@@ -2259,6 +2274,7 @@ namespace Taller_de_Mantenimiento
             }
 
         }
+
         private void materialButton28_Click(object sender, EventArgs e)
         {
             if (!datosCorrectoDetalleVentas())
@@ -2276,6 +2292,8 @@ namespace Taller_de_Mantenimiento
             {
                 MessageBox.Show("Detalle modificado correctamente.");
                 cargarDetalleVentas();
+                CargarServicios();
+                CargarServicios1();
                 capturarDatosDelFormularioDetallesVentas();
                 LimpiarCampos9();
             }
@@ -2293,6 +2311,8 @@ namespace Taller_de_Mantenimiento
             {
                 MessageBox.Show("Detalle eliminado");
                 cargarDetalleVentas();
+                CargarServicios();
+                CargarServicios1();
                 LimpiarCampos9();
             }
             else
@@ -2313,7 +2333,7 @@ namespace Taller_de_Mantenimiento
                 {
                     textBox55.Text = id_usuario.ToString();
                     textBox56.Text = selectedItem.SubItems[1].Text;
-                    textBox57.Text = selectedItem.SubItems[2].Text;
+                   // textBox57.Text = selectedItem.SubItems[2].Text;
                     textBox58.Text = selectedItem.SubItems[3].Text;
                     textBox59.Text = selectedItem.SubItems[4].Text;
                     textBox60.Text = selectedItem.SubItems[5].Text;

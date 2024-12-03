@@ -298,6 +298,7 @@ namespace Taller_de_Mantenimiento
             this.columnHeader57 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader58 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader59 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader60 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.materialLabel70 = new MaterialSkin.Controls.MaterialLabel();
@@ -337,7 +338,6 @@ namespace Taller_de_Mantenimiento
             this.materialLabel61 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.columnHeader60 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -473,9 +473,9 @@ namespace Taller_de_Mantenimiento
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox7.Location = new System.Drawing.Point(129, 231);
+            this.textBox7.Location = new System.Drawing.Point(88, 231);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.Size = new System.Drawing.Size(109, 20);
             this.textBox7.TabIndex = 18;
             // 
             // textBox6
@@ -573,13 +573,13 @@ namespace Taller_de_Mantenimiento
             this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
             this.textBox5.Location = new System.Drawing.Point(129, 383);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(176, 20);
+            this.textBox5.Size = new System.Drawing.Size(159, 20);
             this.textBox5.TabIndex = 9;
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox4.Location = new System.Drawing.Point(129, 306);
+            this.textBox4.Location = new System.Drawing.Point(112, 306);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(176, 20);
             this.textBox4.TabIndex = 8;
@@ -858,9 +858,9 @@ namespace Taller_de_Mantenimiento
             // textBox13
             // 
             this.textBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox13.Location = new System.Drawing.Point(102, 371);
+            this.textBox13.Location = new System.Drawing.Point(85, 371);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(212, 20);
+            this.textBox13.Size = new System.Drawing.Size(229, 20);
             this.textBox13.TabIndex = 30;
             // 
             // textBox12
@@ -890,7 +890,7 @@ namespace Taller_de_Mantenimiento
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox9.Location = new System.Drawing.Point(102, 225);
+            this.textBox9.Location = new System.Drawing.Point(72, 225);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 26;
@@ -1304,7 +1304,7 @@ namespace Taller_de_Mantenimiento
             // textBox15
             // 
             this.textBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox15.Location = new System.Drawing.Point(160, 207);
+            this.textBox15.Location = new System.Drawing.Point(92, 207);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(100, 20);
             this.textBox15.TabIndex = 27;
@@ -1545,7 +1545,7 @@ namespace Taller_de_Mantenimiento
             // textBox25
             // 
             this.textBox25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox25.Location = new System.Drawing.Point(382, 308);
+            this.textBox25.Location = new System.Drawing.Point(374, 308);
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(212, 20);
             this.textBox25.TabIndex = 44;
@@ -1553,7 +1553,7 @@ namespace Taller_de_Mantenimiento
             // textBox24
             // 
             this.textBox24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox24.Location = new System.Drawing.Point(382, 219);
+            this.textBox24.Location = new System.Drawing.Point(374, 219);
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(100, 20);
             this.textBox24.TabIndex = 43;
@@ -1561,7 +1561,7 @@ namespace Taller_de_Mantenimiento
             // textBox23
             // 
             this.textBox23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox23.Location = new System.Drawing.Point(176, 308);
+            this.textBox23.Location = new System.Drawing.Point(155, 308);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(100, 20);
             this.textBox23.TabIndex = 42;
@@ -1569,7 +1569,7 @@ namespace Taller_de_Mantenimiento
             // textBox22
             // 
             this.textBox22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox22.Location = new System.Drawing.Point(176, 220);
+            this.textBox22.Location = new System.Drawing.Point(122, 219);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(100, 20);
             this.textBox22.TabIndex = 41;
@@ -1766,7 +1766,7 @@ namespace Taller_de_Mantenimiento
             // textBox30
             // 
             this.textBox30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox30.Location = new System.Drawing.Point(389, 301);
+            this.textBox30.Location = new System.Drawing.Point(400, 301);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(100, 20);
             this.textBox30.TabIndex = 64;
@@ -1797,7 +1797,7 @@ namespace Taller_de_Mantenimiento
             // textBox28
             // 
             this.textBox28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox28.Location = new System.Drawing.Point(389, 225);
+            this.textBox28.Location = new System.Drawing.Point(319, 224);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(212, 20);
             this.textBox28.TabIndex = 61;
@@ -2347,7 +2347,7 @@ namespace Taller_de_Mantenimiento
             this.materialButton19.Depth = 0;
             this.materialButton19.HighEmphasis = true;
             this.materialButton19.Icon = null;
-            this.materialButton19.Location = new System.Drawing.Point(282, 438);
+            this.materialButton19.Location = new System.Drawing.Point(282, 459);
             this.materialButton19.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton19.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton19.Name = "materialButton19";
@@ -2374,7 +2374,7 @@ namespace Taller_de_Mantenimiento
             this.comboBoxServicios.FormattingEnabled = true;
             this.comboBoxServicios.IntegralHeight = false;
             this.comboBoxServicios.ItemHeight = 43;
-            this.comboBoxServicios.Location = new System.Drawing.Point(165, 360);
+            this.comboBoxServicios.Location = new System.Drawing.Point(165, 370);
             this.comboBoxServicios.MaxDropDownItems = 4;
             this.comboBoxServicios.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBoxServicios.Name = "comboBoxServicios";
@@ -2386,7 +2386,7 @@ namespace Taller_de_Mantenimiento
             // textBox38
             // 
             this.textBox38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox38.Location = new System.Drawing.Point(385, 303);
+            this.textBox38.Location = new System.Drawing.Point(376, 234);
             this.textBox38.Name = "textBox38";
             this.textBox38.Size = new System.Drawing.Size(115, 20);
             this.textBox38.TabIndex = 73;
@@ -2407,7 +2407,7 @@ namespace Taller_de_Mantenimiento
             this.materialLabel40.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel40.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel40.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel40.Location = new System.Drawing.Point(337, 304);
+            this.materialLabel40.Location = new System.Drawing.Point(328, 235);
             this.materialLabel40.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel40.Name = "materialLabel40";
             this.materialLabel40.Size = new System.Drawing.Size(42, 19);
@@ -2630,9 +2630,9 @@ namespace Taller_de_Mantenimiento
             // textBox42
             // 
             this.textBox42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
-            this.textBox42.Location = new System.Drawing.Point(147, 375);
+            this.textBox42.Location = new System.Drawing.Point(181, 375);
             this.textBox42.Name = "textBox42";
-            this.textBox42.Size = new System.Drawing.Size(146, 20);
+            this.textBox42.Size = new System.Drawing.Size(112, 20);
             this.textBox42.TabIndex = 85;
             // 
             // materialLabel46
@@ -2711,12 +2711,12 @@ namespace Taller_de_Mantenimiento
             this.materialLabel43.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.materialLabel43.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel43.ForeColor = System.Drawing.Color.Black;
-            this.materialLabel43.Location = new System.Drawing.Point(68, 376);
+            this.materialLabel43.Location = new System.Drawing.Point(68, 375);
             this.materialLabel43.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel43.Name = "materialLabel43";
-            this.materialLabel43.Size = new System.Drawing.Size(66, 19);
+            this.materialLabel43.Size = new System.Drawing.Size(119, 19);
             this.materialLabel43.TabIndex = 66;
-            this.materialLabel43.Text = "ID Orden:";
+            this.materialLabel43.Text = "ID Detalle Orden:";
             // 
             // textBox39
             // 
@@ -2782,8 +2782,8 @@ namespace Taller_de_Mantenimiento
             // 
             // columnHeader30
             // 
-            this.columnHeader30.Text = "ID Orden";
-            this.columnHeader30.Width = 149;
+            this.columnHeader30.Text = "ID Detalle Orden";
+            this.columnHeader30.Width = 164;
             // 
             // columnHeader31
             // 
@@ -3555,6 +3555,11 @@ namespace Taller_de_Mantenimiento
             this.columnHeader59.Text = "Valores Anteriores";
             this.columnHeader59.Width = 197;
             // 
+            // columnHeader60
+            // 
+            this.columnHeader60.Text = "Valores Nuevos";
+            this.columnHeader60.Width = 213;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -4007,11 +4012,6 @@ namespace Taller_de_Mantenimiento
             this.label11.Size = new System.Drawing.Size(310, 39);
             this.label11.TabIndex = 58;
             this.label11.Text = "Gestion de Usuarios";
-            // 
-            // columnHeader60
-            // 
-            this.columnHeader60.Text = "Valores Nuevos";
-            this.columnHeader60.Width = 213;
             // 
             // Form2
             // 

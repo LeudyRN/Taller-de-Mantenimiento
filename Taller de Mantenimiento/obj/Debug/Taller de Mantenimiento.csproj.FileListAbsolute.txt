@@ -31,3 +31,5 @@ D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\BouncyCa
 D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\itextsharp.dll
 D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\BouncyCastle.Cryptography.xml
 D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\itextsharp.xml
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\BCrypt.Net-Next.dll
+D:\Taller 2.0\Taller de Mantenimiento\Taller de Mantenimiento\bin\Debug\BCrypt.Net-Next.xml

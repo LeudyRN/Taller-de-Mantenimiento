@@ -13,6 +13,9 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using MySqlConnector;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BCrypt.Net;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 
 namespace Taller_de_Mantenimiento
@@ -75,24 +78,19 @@ namespace Taller_de_Mantenimiento
         private void materialButton1_Click(object sender, EventArgs e)
         {
             string correo = materialTextBox21.Text;
-            string contraseña = materialTextBox22.Text;
+            string contraseña = materialTextBox22.Text;  // No encriptamos la contraseña aquí
 
-            if (IniciarSesion(correo, contraseña))
+            if (IniciarSesion(correo, contraseña))  // Pasamos la contraseña sin encriptar
             {
-               
-                Form2 form2= new Form2();
+                Form2 form2 = new Form2();
                 form2.Show();
                 this.Hide();
-                
-
             }
             else
             {
-                MessageBox.Show("Correo o contraseña incorrectos.");
+                MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
             }
-
         }
-
 
         private bool IniciarSesion(string correo, string contraseña)
         {
@@ -105,36 +103,57 @@ namespace Taller_de_Mantenimiento
             {
                 try
                 {
-              
                     if (conexion.State == System.Data.ConnectionState.Closed)
                     {
                         conexion.Open();
                     }
 
-                 
-                    string query = "SELECT * FROM usuarios WHERE correo OR nombre_usuario = @correo AND contrasena = @contraseña";
+                    string query = "SELECT contrasena FROM usuarios WHERE nombre_usuario = @correo";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conexion))
                     {
+                      
                         cmd.Parameters.AddWithValue("@correo", correo);
-                        cmd.Parameters.AddWithValue("@contraseña", contraseña);
 
-                     
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        
+                        object result = cmd.ExecuteScalar();
 
-                     
-                        inicioExitoso = count == 1;
+                       
+                        if (result != null)
+                        {
+                            string storedPasswordHash = result.ToString();  
+
+                        
+                            bool passwordMatches = BCrypt.Net.BCrypt.Verify(contraseña, storedPasswordHash);
+
+                            if (passwordMatches)
+                            {
+                             
+                                inicioExitoso = true;
+                                MessageBox.Show("Inicio de sesión exitoso.");
+                            }
+                            else
+                            {
+                        
+                                MessageBox.Show("Contraseña incorrecta.");
+                            }
+                        }
+                        else
+                        {
+       
+                            MessageBox.Show("Usuario no encontrado.");
+                        }
                     }
                 }
-                catch (MySqlException ex) 
+                catch (MySqlException ex)
                 {
                     MessageBox.Show("Error de conexión: " + ex.Message);
                 }
-                catch (InvalidOperationException ex) 
+                catch (InvalidOperationException ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error inesperado: " + ex.Message);
                 }
@@ -144,6 +163,57 @@ namespace Taller_de_Mantenimiento
         }
 
 
+
+        /*
+                private bool IniciarSesion(string correo, string contraseña)
+                {
+                    bool inicioExitoso = false;
+
+
+                    ConexionMysql conexionDb = new ConexionMysql();
+
+                    using (MySqlConnection conexion = conexionDb.GetConnection())
+                    {
+                        try
+                        {
+
+                            if (conexion.State == System.Data.ConnectionState.Closed)
+                            {
+                                conexion.Open();
+                            }
+
+                            string query = "SELECT * FROM usuarios WHERE nombre_usuario = @correo AND contrasena = @contraseña";
+
+
+                            using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+                            {
+                                cmd.Parameters.AddWithValue("@correo", correo);
+                                cmd.Parameters.AddWithValue("@contraseña", contraseña);
+
+
+                                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+                                inicioExitoso = count == 1;
+                            }
+                        }
+                        catch (MySqlException ex) 
+                        {
+                            MessageBox.Show("Error de conexión: " + ex.Message);
+                        }
+                        catch (InvalidOperationException ex) 
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                        catch (Exception ex) 
+                        {
+                            MessageBox.Show("Error inesperado: " + ex.Message);
+                        }
+                    }
+
+                    return inicioExitoso;
+                }
+                */
 
         private void PictureBox_MouseEnter(object sender, EventArgs e)
         {

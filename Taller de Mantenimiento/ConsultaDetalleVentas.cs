@@ -75,7 +75,7 @@ namespace Taller_de_Mantenimiento
             {
                 using (MySqlCommand mCommand = new MySqlCommand(insert, conexionMysql.GetConnection()))
                 {
-                   // mCommand.Parameters.Add(new MySqlParameter("@id_detalle_venta", mDetalleVentas.id_detalle_venta)); 
+                    mCommand.Parameters.Add(new MySqlParameter("@id_detalle_venta", mDetalleVentas.id_detalle_venta)); 
                     mCommand.Parameters.Add(new MySqlParameter("@id_venta", mDetalleVentas.id_venta));
                     mCommand.Parameters.Add(new MySqlParameter("@id_pieza", mDetalleVentas.id_pieza));
                     mCommand.Parameters.Add(new MySqlParameter("@id_servicio", mDetalleVentas.id_servicio));

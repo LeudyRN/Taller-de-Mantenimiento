@@ -5,11 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
 
 namespace Taller_de_Mantenimiento
 {
     internal class ConsultaUsuario
     {
+
+       
 
         private ConexionMysql conexionMysql;
         private List<Usuarios> musuarios;
@@ -114,30 +117,30 @@ namespace Taller_de_Mantenimiento
                 MessageBox.Show("El  rol no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(musuarios.contrasena);
+
             string insert = "INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, Correo, numero_tel, rol) " +
-                            "VALUES (@nombre_usuario, @contrasena, @nombre, @apellido, @Correo, @numero_tel, @rol);";
+                "VALUES (@nombre_usuario, @contrasena, @nombre, @apellido, @Correo, @numero_tel, @rol);";
 
             try
             {
                 using (MySqlCommand mCommand = new MySqlCommand(insert, conexionMysql.GetConnection()))
                 {
-
-                    mCommand.Parameters.Add(new MySqlParameter("@nombre_usuario", musuarios.nombre_usuario));
-                    mCommand.Parameters.Add(new MySqlParameter("@contrasena", musuarios.contrasena));
-                    mCommand.Parameters.Add(new MySqlParameter("@nombre", musuarios.nombre));
-                    mCommand.Parameters.Add(new MySqlParameter("@apellido", musuarios.apellido));
-                    mCommand.Parameters.Add(new MySqlParameter("@Correo", musuarios.Correo));
-                    mCommand.Parameters.Add(new MySqlParameter("@numero_tel", musuarios.numero_tel));
-                    mCommand.Parameters.Add(new MySqlParameter("@rol", musuarios.rol));
-
+                    mCommand.Parameters.AddWithValue("@nombre_usuario", musuarios.nombre_usuario);
+                    mCommand.Parameters.AddWithValue("@contrasena", hashedPassword); 
+                    mCommand.Parameters.AddWithValue("@nombre", musuarios.nombre);
+                    mCommand.Parameters.AddWithValue("@apellido", musuarios.apellido);
+                    mCommand.Parameters.AddWithValue("@Correo", musuarios.Correo);
+                    mCommand.Parameters.AddWithValue("@numero_tel", musuarios.numero_tel);
+                    mCommand.Parameters.AddWithValue("@rol", musuarios.rol);
 
                     return mCommand.ExecuteNonQuery() > 0;
                 }
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Error al agregar el usuario : {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al agregar el usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             catch (Exception ex)
@@ -148,21 +151,23 @@ namespace Taller_de_Mantenimiento
         }
         internal bool modificarUsuarios(Usuarios musuarios)
         {
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(musuarios.contrasena);
+
             string update = "UPDATE usuarios SET " +
-                           "nombre_usuario = @nombre_usuario, " +
-                           "contrasena = @contrasena, " +
-                           "nombre = @nombre, " +
-                           "apellido = @apellido, " +
-                           "Correo = @Correo, " +  
-                           "numero_tel = @numero_tel, " +  
-                           "rol = @rol " +
-                           "WHERE id_usuario = @id_usuario;";
+                            "nombre_usuario = @nombre_usuario, " +
+                            "contrasena = @contrasena, " +
+                            "nombre = @nombre, " +
+                            "apellido = @apellido, " +
+                            "Correo = @Correo, " +
+                            "numero_tel = @numero_tel, " +
+                            "rol = @rol " +
+                            "WHERE id_usuario = @id_usuario;";
 
             using (MySqlCommand mCommand = new MySqlCommand(update, conexionMysql.GetConnection()))
             {
                 mCommand.Parameters.AddWithValue("@id_usuario", musuarios.id_usuario);
                 mCommand.Parameters.AddWithValue("@nombre_usuario", musuarios.nombre_usuario);
-                mCommand.Parameters.AddWithValue("@contrasena", musuarios.contrasena);
+                mCommand.Parameters.AddWithValue("@contrasena", hashedPassword); 
                 mCommand.Parameters.AddWithValue("@nombre", musuarios.nombre);
                 mCommand.Parameters.AddWithValue("@apellido", musuarios.apellido);
                 mCommand.Parameters.AddWithValue("@Correo", musuarios.Correo);
